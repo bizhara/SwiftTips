@@ -60,7 +60,7 @@ extension UIView {
   }
   
   func circleShapeRadius() -> CGFloat {
-    return self.frame.size.width / 2
+    return self.frame.size.width / 2 // 縦横サイズが同じ前提
   }
   
   func circleShape() {
