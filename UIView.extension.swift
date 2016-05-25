@@ -16,26 +16,6 @@ extension UIView {
   class func viewId() -> String {
     return String(self)
   }
-  
-  // 高さ固定用
-  class func viewHeight() -> CGFloat {
-    let nibName = self.nibName()
-    var viewHeight = self.calculatedViewHeights[nibName]
-    if (viewHeight > 0.0) {
-      return viewHeight!
-    }
-    
-    let nib = UINib(nibName: nibName, bundle: nil)
-    let view = nib.instantiateWithOwner(nil, options: nil)[0]
-    viewHeight = view.frame.size.height
-    self.calculatedViewHeights[nibName] = viewHeight
-    
-    return viewHeight!
-  }
-  
-  // MARK: - Privates
-  
-  private static var calculatedViewHeights: [String: CGFloat] = ["": 0.0]
 }
 
 extension UIView {
