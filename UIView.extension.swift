@@ -58,4 +58,12 @@ extension UIView {
       view.addFrame(frameThickness: frameThickness_, frameColor: frameColor_, frameCorner: frameCorner_)
     }
   }
+  
+  func circleShapeRadius() -> CGFloat {
+    return self.frame.size.width / 2
+  }
+  
+  func circleShape() {
+    self.layer.cornerRadius = circleShapeRadius()
+  }
 }
