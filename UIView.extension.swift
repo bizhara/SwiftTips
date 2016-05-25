@@ -6,15 +6,14 @@
 
 import UIKit
 
-// UITableViewCell 対象
+// 主に UITableViewCell 対象
 extension UIView {
   class func nibName() -> String {
-    // クラス名と nib 名が同じ前提
-    return String(self)
+    return "\(self)" // クラス名と nib 名が同じ前提
   }
   
   class func viewId() -> String {
-    return String(self)
+    return self.nibName()
   }
 }
 
