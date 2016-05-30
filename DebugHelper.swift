@@ -6,16 +6,6 @@
 
 import Foundation
 
-extension NSObject {
-  class func className() -> String {
-    return "\(self)"
-  }
-  
-  func className() -> String {
-    return "\(self.dynamicType)"
-  }
-}
-
 // "#if DEBUG" を有効にするには、Swift Compiler - Custom Flags 中の Other Swift Flags の Debug 欄に "-DDEBUG" を加える
 
 @inline(__always) func dLogOnly(log log_: AnyObject) {
