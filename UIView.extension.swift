@@ -25,7 +25,7 @@ extension UIView {
   
   func addFrame(frameThickness frameThickness_: CGFloat, frameColor frameColor_: UIColor, frameCorner frameCorner_: CGFloat) {
     self.layer.borderWidth = frameThickness_
-    self.layer.borderColor = frameColor_.CGColor
+    self.layer.borderColor = frameColor_.cgColor
     self.layer.cornerRadius = frameCorner_
   }
   
@@ -44,7 +44,7 @@ extension UIView {
   }
   
   func circleShapeRadius() -> CGFloat {
-    return self.frame.size.width / 2 // 縦横サイズが同じ前提
+    return self.frame.size.height / 2 // 縦横サイズが同じ前提
   }
   
   func setCornerRadiusTo(cornerRadius cornerRadius_: CGFloat) {
