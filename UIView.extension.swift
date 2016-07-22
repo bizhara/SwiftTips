@@ -17,7 +17,7 @@ extension UIView {
   }
 }
 
-// UIView.layer を使っての表現
+// UIView.layer を使っての表現（対象 View が constraint されていると機能しないので、レイアウトに注意が必要）
 extension UIView {
   func addFrame(frameThickness frameThickness_: CGFloat, frameColor frameColor_: UIColor) {
     self.addFrame(frameThickness: frameThickness_, frameColor: frameColor_, frameCorner: 0)
