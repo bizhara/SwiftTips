@@ -17,7 +17,7 @@ extension UIView {
   }
 }
 
-// UIView.layer を使っての表現（対象 View が constraint されていると機能しないので、レイアウトに注意が必要）
+// UIView.layer を使っての表現（対象 View が constraint されていると機能しない場合があるので、レイアウトに注意が必要）
 extension UIView {
   func addFrame(frameThickness frameThickness_: CGFloat, frameColor frameColor_: UIColor) {
     self.addFrame(frameThickness: frameThickness_, frameColor: frameColor_, frameCorner: 0)
@@ -49,5 +49,21 @@ extension UIView {
   
   func setCornerRadiusTo(cornerRadius cornerRadius_: CGFloat) {
     self.layer.cornerRadius = cornerRadius_
+  }
+
+  func gradationLayerWith(startColor startColor_: UIColor, endColor endColor_: UIColor) -> CAGradientLayer {
+    let gradationLayer = CAGradientLayer()
+    gradationLayer.colors = [startColor_.cgColor, endColor_.cgColor]
+    gradationLayer.frame = self.bounds
+    return gradationLayer
+  }
+
+  /// ※ view.backgroundColor を設定していても、入力の gradationLayer に置き換わってしまうので注意
+  func setGradationBackgroundWith(gradationLayer gradationLayer_: CAGradientLayer) {
+    self.layer.insertSublayer(gradationLayer_, at: 0)
+  }
+
+  func setGradationBackgroundWith(startColor startColor_: UIColor, endColor endColor_: UIColor) {
+    self.setGradationBackgroundWith(gradationLayer: self.gradationLayerWith(startColor: startColor_, endColor: endColor_))
   }
 }
