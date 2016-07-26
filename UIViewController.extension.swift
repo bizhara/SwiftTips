@@ -7,6 +7,16 @@
 import UIKit
 
 extension UIViewController {
+  /// 入力エリア以外をタッチしたらキーボードを消す (may use with touchesEnded)
+  func hideKeyboardWith(touches touches_: Set<UITouch>, event event_: UIEvent?) {
+    guard let toucedView = self.findTouchedViewWith(touches: touches_, event: event_) else {
+      return
+    }
+    if toucedView != self.inputView {
+      self.hideKeyboard()
+    }
+  }
+
   /// タッチした場所の UIView を返す (may use with touchesEnded)
   func findTouchedViewWith(touches touches_: Set<UITouch>, event event_: UIEvent?) -> UIView? {
     guard let touch = touches_.first else {
