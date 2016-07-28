@@ -15,3 +15,13 @@ class ViewControllerFromStoryboard<YourViewControllerT> {
     return me
   }
 }
+
+/// Storyboard から InitialViewController 指定された NavigationController の生成
+/// （YourViewControllerT と Storyboard 名が同じと想定）
+class NavigationControllerFromStoryboard<YourViewControllerT, YourNovigationControllerT> {
+  class func new() -> YourNovigationControllerT? {
+    let storyboard = UIStoryboard(name: "\(YourViewControllerT.self)", bundle: nil)
+    let me = storyboard.instantiateInitialViewController() as? YourNovigationControllerT
+    return me
+  }
+}
