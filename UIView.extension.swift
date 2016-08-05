@@ -38,7 +38,9 @@ extension UIView {
       view.addFrame(frameThickness: frameThickness_, frameColor: frameColor_, frameCorner: frameCorner_)
     }
   }
-  
+
+  // 通常は、self.layer.cornerRadius を viewDidLoad 時など初期化時に設定するが、AutoLayout の issue らしく Constraint 設定時には auto layout 後に無効になってしまう
+  // 回避策としては、viewDidLayoutSubviews で layoutIfNeeded and circleShape してやると circleShape が有効になる
   func circleShape() {
     self.setCornerRadiusTo(cornerRadius: self.circleShapeRadius())
   }
