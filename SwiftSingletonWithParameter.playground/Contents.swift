@@ -13,7 +13,7 @@ func verticalPercentAlignmentValueWith(superViewFrame superViewFrame_: CGRect, t
 }
 
 let superViewFrame = CGRect(x: 0, y: 0, width: 375, height: 667)
-let targetViewFrame = CGRect(x: 148, y: 561, width: 79, height: 46)
+let targetViewFrame = CGRect(x: 25, y: 235, width: 325, height: 256)
 let percentValue = verticalPercentAlignmentValueWith(superViewFrame: superViewFrame, targetViewFrame: targetViewFrame)
 
 
