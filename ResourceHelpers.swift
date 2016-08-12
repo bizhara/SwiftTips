@@ -1,15 +1,15 @@
 //
-//  UIViewControllerHelper.swift
+//  ResourceHelpers.swift
 //
-//  Created by hara on 2016/07/21.
+//  Created by khara on 2016/08/10.
 //
 
 import UIKit
 
 /// Storyboard から InitialViewController 指定された ViewController の生成
 /// （YourViewControllerT と Storyboard 名が同じと想定）
-class ViewControllerFromStoryboard<YourViewControllerT> {
-  class func new() -> YourViewControllerT? {
+struct ViewController<YourViewControllerT> {
+  static func fromStoryboard() -> YourViewControllerT? {
     let storyboard = UIStoryboard(name: "\(YourViewControllerT.self)", bundle: nil)
     let me = storyboard.instantiateInitialViewController() as? YourViewControllerT
     return me
@@ -18,10 +18,23 @@ class ViewControllerFromStoryboard<YourViewControllerT> {
 
 /// Storyboard から InitialViewController 指定された NavigationController の生成
 /// （YourViewControllerT と Storyboard 名が同じと想定）
-class NavigationControllerFromStoryboard<YourViewControllerT, YourNovigationControllerT> {
-  class func new() -> YourNovigationControllerT? {
+struct NavigationController<YourViewControllerT, YourNovigationControllerT> {
+  static func fromStoryboard() -> YourNovigationControllerT? {
     let storyboard = UIStoryboard(name: "\(YourViewControllerT.self)", bundle: nil)
     let me = storyboard.instantiateInitialViewController() as? YourNovigationControllerT
+    return me
+  }
+}
+
+/// nib からオブジェクトを取得する
+struct object<YourClassT> {
+  static func fromNib() -> YourClassT? {
+    let nib = UINib(nibName: "\(YourClassT.self)", bundle: nil)
+    let objects = nib.instantiate(withOwner: nil, options: nil)
+    guard objects.count > 0 else {
+      return nil
+    }
+    let me = objects[0] as? YourClassT
     return me
   }
 }
