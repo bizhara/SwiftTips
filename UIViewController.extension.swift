@@ -7,16 +7,6 @@
 import UIKit
 
 extension UIViewController {
-  /// 入力エリア以外をタッチしたらキーボードを消す (may use with touchesEnded)
-  func hideKeyboardWith(touches touches_: Set<UITouch>, event event_: UIEvent?) {
-    guard let toucedView = self.findTouchedViewWith(touches: touches_, event: event_) else {
-      return
-    }
-    if toucedView != self.inputView {
-      self.hideKeyboard()
-    }
-  }
-
   /// タッチした場所の UIView を返す (may use with touchesEnded)
   func findTouchedViewWith(touches touches_: Set<UITouch>, event event_: UIEvent?) -> UIView? {
     guard let touch = touches_.first else {
@@ -30,11 +20,7 @@ extension UIViewController {
   // 遷移先の戻るボタンのタイトルを消すには、遷移元でこれを呼んでおく必要がある
   // ※ UINavigationControllerDelegate.navigationController(_, willShow, animated) で以下と同様のことを実装した方がスマートと思う
   func eraseNextBackButtonTitle() {
-    #if swift(>=3.0)
     let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    #else
-    let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-    #endif
     self.navigationItem.backBarButtonItem = backButtonItem
   }
 }
