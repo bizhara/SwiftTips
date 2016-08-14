@@ -80,3 +80,18 @@ extension UIViewController {
     self.view.frame = frame
   }
 }
+
+extension Notification {
+  /// キーボードの高さを得る
+  func keyboardHeight() -> CGFloat? {
+    guard let userInfo = self.userInfo else {
+      return 0
+    }
+    guard let keyboardInfo = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+      return 0
+    }
+
+    let keyboardRect = keyboardInfo.cgRectValue
+    return keyboardRect.height
+  }
+}
