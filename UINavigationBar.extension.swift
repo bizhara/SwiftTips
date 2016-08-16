@@ -19,33 +19,17 @@ extension UINavigationBar {
   
   /// 透過色のバー
   func translucentBarWith(color color_: UIColor) {
-    #if swift(>=3.0)
     self.setBackgroundImage(UIImage(), for: .default)
-    #else
-    self.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-    #endif
     self.shadowImage = UIImage()
     self.backgroundColor = color_
-    #if swift(>=3.0)
     self.isTranslucent = true
-    #else
-    self.translucent = true
-    #endif
   }
   
   /// 透過色のバー（アプリ全ての UINavigationBar に影響）
   class func translucentBarWith(color color_: UIColor) {
-    #if swift(>=3.0)
     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-    #else
-    UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: .Default)
-    #endif
     UINavigationBar.appearance().shadowImage = UIImage()
     UINavigationBar.appearance().backgroundColor = color_
-    #if swift(>=3.0)
     UINavigationBar.appearance().isTranslucent = true
-    #else
-    UINavigationBar.appearance().translucent = true
-    #endif
   }
 }
