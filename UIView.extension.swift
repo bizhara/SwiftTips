@@ -40,7 +40,7 @@ extension UIView {
   }
 
   // 通常は、self.layer.cornerRadius を viewDidLoad 時など初期化時に設定するが、AutoLayout の issue らしく Constraint 設定時には auto layout 後に無効になってしまう
-  // 回避策としては、viewDidLayoutSubviews で layoutIfNeeded and circleShape してやると circleShape が有効になる
+  // 回避策としては、layoutSubviews で circleShape してやると circleShape が有効になる
   // see. http://stackoverflow.com/questions/18946621/how-to-combine-auto-layout-constraints-with-contentmode-property-of-uiview , 
   // http://stackoverflow.com/questions/27509021/issues-with-uiimageview-layer-cornerradius-to-create-rounded-images-on-different
   func circleShape() {
