@@ -6,17 +6,6 @@
 
 import UIKit
 
-// 主に UITableViewCell 対象
-extension UIView {
-  class func nibName() -> String {
-    return "\(self)" // クラス名と nib 名が同じ前提
-  }
-  
-  class func viewId() -> String {
-    return self.nibName()
-  }
-}
-
 // UIView.layer を使っての表現（対象 View が constraint されていると機能しない場合があるので、レイアウトに注意が必要）
 extension UIView {
   func addFrame(frameThickness frameThickness_: CGFloat, frameColor frameColor_: UIColor) {

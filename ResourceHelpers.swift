@@ -38,3 +38,14 @@ struct object<YourClassT> {
     return me
   }
 }
+
+/// nib 属性の取得
+struct nib<YourClassT> {
+  static func name() -> String {
+    return "\(YourClassT.self)"
+  }
+
+  static func id() -> String {
+    return self.name()
+  }
+}
