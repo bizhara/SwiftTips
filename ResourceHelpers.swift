@@ -26,19 +26,6 @@ struct NavigationController<YourViewControllerT, YourNovigationControllerT> {
   }
 }
 
-/// nib からオブジェクトを取得する
-struct object<YourClassT> {
-  static func fromNib() -> YourClassT? {
-    let nib = UINib(nibName: "\(YourClassT.self)", bundle: nil)
-    let objects = nib.instantiate(withOwner: nil, options: nil)
-    guard objects.count > 0 else {
-      return nil
-    }
-    let me = objects[0] as? YourClassT
-    return me
-  }
-}
-
 /// nib 属性の取得
 struct nib<YourClassT> {
   static func name() -> String {
@@ -47,5 +34,15 @@ struct nib<YourClassT> {
 
   static func id() -> String {
     return self.name()
+  }
+
+  static func object() -> YourClassT? {
+    let nib = UINib(nibName: self.name(), bundle: nil)
+    let objects = nib.instantiate(withOwner: nil, options: nil)
+    guard objects.count > 0 else {
+      return nil
+    }
+    let me = objects[0] as? YourClassT
+    return me
   }
 }
