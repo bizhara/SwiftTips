@@ -16,13 +16,6 @@ extension UIViewController {
     let touchedView = self.view.hitTest(touchPoint, with: event_)
     return touchedView
   }
-
-  // 遷移先の戻るボタンのタイトルを消すには、遷移元でこれを呼んでおく必要がある
-  // ※ UINavigationControllerDelegate.navigationController(_, willShow, animated) で以下と同様のことを実装した方がスマートと思う
-  func eraseNextBackButtonTitle() {
-    let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    self.navigationItem.backBarButtonItem = backButtonItem
-  }
 }
 
 extension UIViewController {
