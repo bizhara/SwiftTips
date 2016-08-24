@@ -90,11 +90,17 @@ extension Notification {
     guard let userInfo = self.userInfo else {
       return 0
     }
-    guard let keyboardInfo = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
-      return 0
+
+    func keyboardHeightFrom(keyboardInfo keyboardInfo_: NSValue?) -> CGFloat {
+      guard let keyboardInfo_ = keyboardInfo_ else {
+        return 0
+      }
+      let keyboardRect = keyboardInfo_.cgRectValue
+      return keyboardRect.height
     }
 
-    let keyboardRect = keyboardInfo.cgRectValue
-    return keyboardRect.height
+    let keyboardHeight1 = keyboardHeightFrom(keyboardInfo: userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)
+    let keyboardHeight2 = keyboardHeightFrom(keyboardInfo: userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)
+    return keyboardHeight1 > keyboardHeight2 ? keyboardHeight1 : keyboardHeight2
   }
 }
