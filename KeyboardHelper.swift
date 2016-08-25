@@ -60,9 +60,10 @@ extension ViewControllerWithKeyboard: InputAreaAdjusterProtocol {
       return
     }
 
-    let baseRect = CGRect(x: 0, y: 0,
+    let navigationBarHeight = (self.navigationController?.navigationBar.frame.maxY)!
+    let baseRect = CGRect(x: 0, y: navigationBarHeight,
                           width: self.view.frame.width,
-                          height: self.view.frame.height - keyboardHeight)
+                          height: self.view.frame.height - keyboardHeight - navigationBarHeight)
     let offset = baseRect.midY - inputAreaOwner.inputArea.midY
 
     var frame = self.view.frame
