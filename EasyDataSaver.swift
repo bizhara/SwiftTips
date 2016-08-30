@@ -20,17 +20,17 @@ class EasyDataSaver {
     self.dataKey = ""
   }
   
-  func replaceWith(newDictionary newDictionary_: [String: String]) {
+  func replaceWith(newDictionary newDictionary_: [String: Any]) {
     let newData = NSKeyedArchiver.archivedData(withRootObject: newDictionary_)
     self.data = newData
   }
   
-  func toDictionary() -> [String: String]? {
+  func toDictionary() -> [String: Any]? {
     guard let _ = self.data else {
       return nil
     }
     
-    let userInfoDictionary = NSKeyedUnarchiver.unarchiveObject(with: self.data!) as! [String: String]
+    let userInfoDictionary = NSKeyedUnarchiver.unarchiveObject(with: self.data!) as! [String: Any]
     return userInfoDictionary
   }
   
