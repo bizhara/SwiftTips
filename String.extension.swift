@@ -17,16 +17,16 @@ extension String {
   }
 
   /// checkCharacters で指定された文字以外の文字があるか否かを判定する
-  func hasOtherCharacters(checkCharacters checkCharacters_: [Character]) -> Bool {
+  func hasOtherCharacters(with checkCharacters_: [Character]) -> Bool {
     for character in self.characters {
       var matched = false
       for checkCharacter in checkCharacters_ {
-        if (checkCharacter == character) {
+        if checkCharacter == character {
           matched = true
           break
         }
       }
-      if (!matched) {
+      if !matched {
         return true
       }
     }

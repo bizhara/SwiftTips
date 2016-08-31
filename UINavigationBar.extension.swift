@@ -9,16 +9,16 @@ import UIKit
 extension UINavigationBar {
   /// 透過・透明なバー
   func transparentBar() {
-    self.translucentBarWith(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0))
+    self.translucentBar(with: UIColor(red: 0, green: 0, blue: 0, alpha: 0))
   }
   
   /// 透過色のバー（アプリ全ての UINavigationBar に影響）
   class func transparentBar() {
-    self.translucentBarWith(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0))
+    self.translucentBar(with: UIColor(red: 0, green: 0, blue: 0, alpha: 0))
   }
   
   /// 透過色のバー
-  func translucentBarWith(color color_: UIColor) {
+  func translucentBar(with color_: UIColor) {
     self.setBackgroundImage(UIImage(), for: .default)
     self.shadowImage = UIImage()
     self.backgroundColor = color_
@@ -26,7 +26,7 @@ extension UINavigationBar {
   }
   
   /// 透過色のバー（アプリ全ての UINavigationBar に影響）
-  class func translucentBarWith(color color_: UIColor) {
+  class func translucentBar(with color_: UIColor) {
     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     UINavigationBar.appearance().shadowImage = UIImage()
     UINavigationBar.appearance().backgroundColor = color_

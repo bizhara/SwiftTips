@@ -1,9 +1,7 @@
 //
 //  KeyboardHelper.swift
-//  Dolphin-iOS
 //
 //  Created by hara on 2016/08/15.
-//  Copyright © 2016年 Kazuaki Hara. All rights reserved.
 //
 
 import UIKit
@@ -14,11 +12,11 @@ class ViewControllerWithKeyboard: UIViewController {
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesEnded(touches, with: event)
 
-    self.hideKeyboardWith(touches: touches, event: event)
+    self.hideKeyboard(with: touches, event: event)
   }
 
-  func hideKeyboardWith(touches touches_: Set<UITouch>, event event_: UIEvent?) {
-    guard let toucedView = self.findTouchedViewWith(touches: touches_, event: event_) else {
+  func hideKeyboard(with touches_: Set<UITouch>, event event_: UIEvent?) {
+    guard let toucedView = self.findTouchedView(with: touches_, event: event_) else {
       return
     }
     if toucedView != self.inputView {

@@ -33,18 +33,18 @@ extension UIView {
   // see. http://stackoverflow.com/questions/18946621/how-to-combine-auto-layout-constraints-with-contentmode-property-of-uiview , 
   // http://stackoverflow.com/questions/27509021/issues-with-uiimageview-layer-cornerradius-to-create-rounded-images-on-different
   func circleShape() {
-    self.setCornerRadiusTo(cornerRadius: self.circleShapeRadius())
+    self.setCornerRadius(with: self.circleShapeRadius())
   }
   
   func circleShapeRadius() -> CGFloat {
     return self.frame.size.height / 2 // 縦横サイズが同じ前提
   }
   
-  func setCornerRadiusTo(cornerRadius cornerRadius_: CGFloat) {
+  func setCornerRadius(with cornerRadius_: CGFloat) {
     self.layer.cornerRadius = cornerRadius_
   }
 
-  func gradationLayerWith(startColor startColor_: UIColor, endColor endColor_: UIColor) -> CAGradientLayer {
+  func gradationLayer(startColor startColor_: UIColor, endColor endColor_: UIColor) -> CAGradientLayer {
     let gradationLayer = CAGradientLayer()
     gradationLayer.colors = [startColor_.cgColor, endColor_.cgColor]
     gradationLayer.frame = self.bounds
@@ -57,6 +57,6 @@ extension UIView {
   }
 
   func setGradationBackgroundWith(startColor startColor_: UIColor, endColor endColor_: UIColor) {
-    self.setGradationBackgroundWith(gradationLayer: self.gradationLayerWith(startColor: startColor_, endColor: endColor_))
+    self.setGradationBackgroundWith(gradationLayer: self.gradationLayer(startColor: startColor_, endColor: endColor_))
   }
 }

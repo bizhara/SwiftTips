@@ -8,7 +8,7 @@ import UIKit
 
 extension UIViewController {
   /// タッチした場所の UIView を返す (may use with touchesEnded)
-  func findTouchedViewWith(touches touches_: Set<UITouch>, event event_: UIEvent?) -> UIView? {
+  func findTouchedView(with touches_: Set<UITouch>, event event_: UIEvent?) -> UIView? {
     guard let touch = touches_.first else {
       return nil
     }

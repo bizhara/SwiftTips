@@ -8,10 +8,10 @@ import Foundation
 
 /// Archived save and restore data using UserDefaults.
 class EasyDataSaver {
-  private var data: Data? = nil
+  private var data: Data?
   private let dataKey: String
   
-  init(dataKey dataKey_: String) {
+  init(with dataKey_: String) {
     self.dataKey = dataKey_
   }
   
@@ -20,7 +20,7 @@ class EasyDataSaver {
     self.dataKey = ""
   }
   
-  func replaceWith(newDictionary newDictionary_: [String: Any]) {
+  func update(with newDictionary_: [String: Any]) {
     let newData = NSKeyedArchiver.archivedData(withRootObject: newDictionary_)
     self.data = newData
   }

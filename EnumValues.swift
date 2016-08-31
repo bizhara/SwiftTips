@@ -15,7 +15,7 @@ protocol EnumValues {
   /// 各 case を文字列に変換する（各 enum で実装必要）
   var string: String { get }
   /// 各文字列を case に変換する
-  static func enumValue(fromString fromString_: String?) -> EnumTypeT
+  static func enumValue(from string_: String?) -> EnumTypeT
 
   /// 全 case の文字列配列
   static func allStringValues() -> [String]
@@ -23,13 +23,6 @@ protocol EnumValues {
   static func allValuesString() -> String
   /// allValuesString(:) 用 separator（必要に応じて各 enum で再定義）
   static var separator: String { get }
-
-  /// 各 case の index 数値文字列
-  func intString() -> String
-  /// 各 index 数値文字列から enum 値
-  static func from(intString intString_: String?) -> EnumTypeT
-  /// intString, from 用 index 開始値（必要に応じて各 enum で再定義）
-  static var baseIndex: Int { get }
 }
 
 extension EnumValues {
@@ -37,8 +30,8 @@ extension EnumValues {
     return left.string == right.string
   }
 
-  static func enumValue(fromString fromString_: String?) -> EnumTypeT {
-    guard let fromStr = fromString_ else {
+  static func enumValue(from string_: String?) -> EnumTypeT {
+    guard let fromStr = string_ else {
       return self.allValues[0]
     }
 
@@ -66,36 +59,5 @@ extension EnumValues {
 
   static var separator: String {
     return ","
-  }
-
-  func intString() -> String {
-    var index = EnumTypeT.baseIndex
-    for value in EnumTypeT.allValues {
-      if value == self {
-        return String(index)
-      }
-      index += 1
-    }
-    return String(EnumTypeT.baseIndex)
-  }
-
-  static func from(intString intString_: String?) -> EnumTypeT {
-    guard let intStr = intString_ else {
-      return EnumTypeT.allValues[0]
-    }
-    guard let index = Int(intStr) else {
-      return EnumTypeT.allValues[0]
-    }
-    guard index >= EnumTypeT.baseIndex else {
-      return EnumTypeT.allValues[0]
-    }
-    guard index < EnumTypeT.allValues.count else {
-      return EnumTypeT.allValues[0]
-    }
-    return EnumTypeT.allValues[index - EnumTypeT.baseIndex]
-  }
-
-  static var baseIndex: Int {
-    return 0
   }
 }

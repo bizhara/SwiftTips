@@ -7,7 +7,7 @@
 import Foundation
 
 struct Localizable<YourClassNameT> {
-  static func stringWith(key key_: String) -> String {
+  static func string(with key_: String) -> String {
     return NSLocalizedString(key_, tableName: "\(YourClassNameT.self)", comment: "")
   }
 }
