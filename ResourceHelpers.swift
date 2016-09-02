@@ -27,7 +27,7 @@ struct NavigationController<YourViewControllerT, YourNovigationControllerT> {
 }
 
 /// nib 属性の取得
-struct nib<YourClassT> {
+struct Nib<YourClassT> {
   static func name() -> String {
     return "\(YourClassT.self)"
   }
