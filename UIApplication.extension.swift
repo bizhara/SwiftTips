@@ -1,12 +1,10 @@
 //
 //  UIApplication.extension.swift
-//  Dolphin-iOS
 //
 //  Created by hara on 2016/07/25.
-//  Copyright © 2016年 Kazuaki Hara. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIApplication {
   class func appName() -> String? {
