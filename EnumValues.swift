@@ -10,9 +10,9 @@ import Foundation
 protocol EnumValues {
   typealias EnumTypeT = Self
 
-  /// 全 case の配列（各 enum で実装必要）
+  /// 全 case の配列（各 enum で実装必須）
   static var enumValues: [EnumTypeT] { get }
-  /// 各 case を文字列に変換する（各 enum で実装必要）
+  /// 各 case を文字列に変換する（各 enum で実装必須）
   var string: String { get }
 
   /// 全 case 数
@@ -68,7 +68,9 @@ extension EnumValues {
     }
     return self.enumValues[0]
   }
+}
 
+extension EnumValues {
   static func stringValues() -> [String] {
     var result: [String] = []
     for value in EnumTypeT.enumValues {
