@@ -14,6 +14,11 @@ protocol EnumValues {
   static var enumValues: [EnumTypeT] { get }
   /// 各 case を文字列に変換する（各 enum で実装必要）
   var string: String { get }
+
+  /// 全 case 数
+  static var count: Int { get }
+  /// 各 case の位置
+  var index: Int { get }
   /// 各文字列を case に変換する
   static func enumValue(from string_: String?) -> EnumTypeT
 
@@ -28,6 +33,25 @@ protocol EnumValues {
 extension EnumValues {
   static func ==(left: EnumTypeT, right: EnumTypeT) -> Bool {
     return left.string == right.string
+  }
+
+  static var count: Int {
+    get {
+      return self.enumValues.count
+    }
+  }
+
+  var index: Int {
+    get {
+      var enumIndex = 0
+      for enumValue in type(of: self).enumValues {
+        if enumValue == self {
+          return enumIndex
+        }
+        enumIndex += 1
+      }
+      return 0
+    }
   }
 
   static func enumValue(from string_: String?) -> EnumTypeT {
