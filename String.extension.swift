@@ -33,3 +33,9 @@ extension String {
     return false
   }
 }
+
+extension String {
+  func localized(with tableName_: String? = nil) -> String {
+    return NSLocalizedString(self, tableName: tableName_, comment: "")
+  }
+}
