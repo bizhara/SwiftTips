@@ -10,7 +10,7 @@ import UIKit
 protocol SelectOneProtocol {
   associatedtype ControllerT
 
-  var selectables: [ControllerT] { get }
+  var selectables: [ControllerT]! { get }
 
   func tappedSelectable(_ sender: ControllerT)
   func selectOne(_ sender: ControllerT)
