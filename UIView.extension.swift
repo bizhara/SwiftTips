@@ -6,52 +6,7 @@
 
 import UIKit
 
-protocol RecoverShapeProtocol {
-  var savedCornerRadius: CGFloat { get set }
-
-  func setup(with superView_: UIView?)
-  func recover(to superView_: UIView?)
-}
-
-/// AutoLayout 時でも Rounded Corner Rectangle がきちんと描かれるよう監視＆補完する
-/// ※ 対象 UIView に addSubview しての使用を前提としている（extension UIView と協調）
-private class LayoutSupervisorView: UIView, RecoverShapeProtocol {
-  internal var savedCornerRadius: CGFloat = 0
-
-  internal func setup(with superView_: UIView?) {
-    guard let superView = superView_ else { return }
-    self.savedCornerRadius = superView.layer.cornerRadius
-
-    // なんらかの大きさがないと、後に layoutSubviews が呼ばれないが、画面に出てほしくもないので、明示的にそのような値に
-    self.frame = CGRect(x: -100, y: -100, width: 10, height: 10)
-  }
-
-  internal func recover(to superView_: UIView?) {
-    guard let superView = superView_ else { return }
-    guard self.savedCornerRadius != 0 else { return }
-
-    // 両端が半円の設定をしたい時、setup 時には適切な大きさになっていないことが多いので、再計算の必用があることを認識させるためマイナス値になっている
-    // see extension UIView
-    if self.savedCornerRadius < 0 {
-      self.savedCornerRadius = superView.circleShapeRadius()
-    }
-    superView.layer.cornerRadius = self.savedCornerRadius
-  }
-}
-
-extension LayoutSupervisorView {
-  override func didMoveToSuperview() {
-    super.didMoveToSuperview()
-    self.setup(with: self.superview)
-  }
-
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    self.recover(to: self.superview)
-  }
-}
-
-/// UIView.layer を使っての表現（対象 View が constraint されていると機能しない場合があるので、レイアウトに注意が必要）
+/// UIView.layer を使っての表現
 extension UIView {
   /// 枠線追加
   func addFrame(frameThickness frameThickness_: CGFloat, frameColor frameColor_: UIColor) {
@@ -62,7 +17,7 @@ extension UIView {
   func addFrame(frameThickness frameThickness_: CGFloat, frameColor frameColor_: UIColor, frameCorner frameCorner_: CGFloat) {
     self.layer.borderWidth = frameThickness_
     self.layer.borderColor = frameColor_.cgColor
-    self.setCornerRadius(with: frameCorner_)
+    self.layer.cornerRadius = frameCorner_
   }
   
   /// 枠線追加
@@ -76,35 +31,72 @@ extension UIView {
       view.addFrame(frameThickness: frameThickness_, frameColor: frameColor_, frameCorner: frameCorner_)
     }
   }
+}
 
+extension UIView {
   /// 両端が半円の cornerRadius 値を設定する（角丸四角は addFrame で）
-  /// ※ 現状の AutoLayout の特性上、UIViewController.viewDidLoad 時はまだ適切な大きさになっていないことが多いので
-  /// setCornerRadius と合わせて UIView.layoutSubviews 時に適切な設定になるようにと考えている
-  /// 故に再計算が必要なことを認識させるため、ここではマイナス値を送っている
+  /// ※ 現状の AutoLayout の特性上、UIViewController.viewDidLoad 時はまだ適切な大きさになっていないので
+  /// UIView.layoutSubviews 時に適切な設定にすべく、監視用 View を仕込んで対応する
   func circleShape() {
-    self.setCornerRadius(with: -1)
+    self.layer.cornerRadius = self.circleShapeRadius
+    self.add(layoutComplement: CircleShapeComplement())
   }
 
   /// 両端が半円になるような cornerRadius 値を返す
-  func circleShapeRadius() -> CGFloat {
+  fileprivate var circleShapeRadius: CGFloat {
     return self.frame.size.height / 2
   }
-  
-  private func setCornerRadius(with cornerRadius_: CGFloat) {
-    self.layer.cornerRadius = cornerRadius_
+}
 
-    // 通常は、self.layer.cornerRadius を UIViewController.viewDidLoad 時など初期化時に設定するが、
-    // AutoLayout の issue らしく Constraint 設定時には AutoLayout 後に無効になってしまう
-    // 回避策としては、UIView.layoutSubviews で self.layer.cornerRadius を再設定してやると有効になる
-    // see. http://stackoverflow.com/questions/18946621/how-to-combine-auto-layout-constraints-with-contentmode-property-of-uiview ,
-    // http://stackoverflow.com/questions/27509021/issues-with-uiimageview-layer-cornerradius-to-create-rounded-images-on-different
-    // そのための監視 view を設けて汎用的に対処できるようにと考えた
-    if cornerRadius_ != 0 {
-      let supervisorView = LayoutSupervisorView()
-      self.addSubview(supervisorView)
+/// layoutSubviews 後に CircleShape として適切な cornerRadius 値を設定する
+struct CircleShapeComplement: LayoutComplementProtocol {
+  func didLayoutSubviews(with targetView_: UIView) {
+    targetView_.layer.cornerRadius = targetView_.circleShapeRadius
+  }
+}
+
+// MARK: - Layout capture
+
+/// LayoutCaptureView に登録して layoutSubviews 後に再レイアウトを行なう
+protocol LayoutComplementProtocol {
+  func didLayoutSubviews(with targetView_: UIView)
+}
+
+/// UIView に登録して layoutSubviews 呼び出しと連動させる
+private class LayoutCaptureView: UIView {
+  var targetView: UIView!
+  var layoutComplements: [LayoutComplementProtocol] = []
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+
+    for layoutComplement in self.layoutComplements {
+      layoutComplement.didLayoutSubviews(with: self.targetView)
     }
   }
 }
+
+extension UIView {
+  func add(layoutComplement layoutComplement_: LayoutComplementProtocol) {
+    func findLayoutCapture() -> LayoutCaptureView? {
+      for subView in self.subviews {
+        if type(of: subView) == LayoutCaptureView.self {
+          return subView as? LayoutCaptureView
+        }
+      }
+      // なんらかの大きさがないと、後に layoutSubviews が呼ばれないが、画面に出てほしくもないので、明示的にそのような値に
+      let layoutCapture = LayoutCaptureView(frame: CGRect(x: -100, y: -100, width: 10, height: 10))
+      layoutCapture.targetView = self
+      self.addSubview(layoutCapture)
+      return layoutCapture
+    }
+
+    guard let layoutCapture = findLayoutCapture() else { return }
+    layoutCapture.layoutComplements.append(layoutComplement_)
+  }
+}
+
+// MARK: - Gradation layer
 
 extension UIView {
   /// startColor 〜 endColor のグラデーションを表現する layer を作成
