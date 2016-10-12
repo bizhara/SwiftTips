@@ -8,6 +8,6 @@ import UIKit
 
 protocol GestureHandlerProtocol: NSObjectProtocol {
   associatedtype GestureRecognizerT
-  func onRecognizedGesture(sender: GestureRecognizerT)
-  var completion: ((sender: GestureRecognizerT) -> Void)? { get }
+  func onRecognizedGesture(sender sender_: GestureRecognizerT)
+  var completion: ((_ sender_: GestureRecognizerT) -> Void)? { get }
 }

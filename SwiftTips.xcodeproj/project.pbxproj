@@ -22,8 +22,8 @@
 		623BD0761DAE38890002388B /* LinesTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0531DAE38890002388B /* LinesTextView.swift */; };
 		623BD0771DAE38890002388B /* LongPressGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0541DAE38890002388B /* LongPressGestureHandler.swift */; };
 		623BD0781DAE38890002388B /* NontitleBackButtonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0551DAE38890002388B /* NontitleBackButtonNavigationController.swift */; };
-		623BD0791DAE38890002388B /* NSOperation.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0561DAE38890002388B /* NSOperation.extension.swift */; };
-		623BD07A1DAE38890002388B /* NSURL.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0571DAE38890002388B /* NSURL.extension.swift */; };
+		623BD0791DAE38890002388B /* Operation.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0561DAE38890002388B /* Operation.extension.swift */; };
+		623BD07A1DAE38890002388B /* URL.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0571DAE38890002388B /* URL.extension.swift */; };
 		623BD07B1DAE38890002388B /* Numbers.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0581DAE38890002388B /* Numbers.extension.swift */; };
 		623BD07C1DAE38890002388B /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0591DAE38890002388B /* PlaceholderTextView.swift */; };
 		623BD07D1DAE38890002388B /* ResourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05A1DAE38890002388B /* ResourceHelpers.swift */; };
@@ -76,8 +76,8 @@
 		623BD0531DAE38890002388B /* LinesTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinesTextView.swift; path = Codes/LinesTextView.swift; sourceTree = "<group>"; };
 		623BD0541DAE38890002388B /* LongPressGestureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressGestureHandler.swift; path = Codes/LongPressGestureHandler.swift; sourceTree = "<group>"; };
 		623BD0551DAE38890002388B /* NontitleBackButtonNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NontitleBackButtonNavigationController.swift; path = Codes/NontitleBackButtonNavigationController.swift; sourceTree = "<group>"; };
-		623BD0561DAE38890002388B /* NSOperation.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSOperation.extension.swift; path = Codes/NSOperation.extension.swift; sourceTree = "<group>"; };
-		623BD0571DAE38890002388B /* NSURL.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURL.extension.swift; path = Codes/NSURL.extension.swift; sourceTree = "<group>"; };
+		623BD0561DAE38890002388B /* Operation.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operation.extension.swift; path = Codes/Operation.extension.swift; sourceTree = "<group>"; };
+		623BD0571DAE38890002388B /* URL.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URL.extension.swift; path = Codes/URL.extension.swift; sourceTree = "<group>"; };
 		623BD0581DAE38890002388B /* Numbers.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Numbers.extension.swift; path = Codes/Numbers.extension.swift; sourceTree = "<group>"; };
 		623BD0591DAE38890002388B /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceholderTextView.swift; path = Codes/PlaceholderTextView.swift; sourceTree = "<group>"; };
 		623BD05A1DAE38890002388B /* ResourceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceHelpers.swift; path = Codes/ResourceHelpers.swift; sourceTree = "<group>"; };
@@ -172,9 +172,8 @@
 				623BD0531DAE38890002388B /* LinesTextView.swift */,
 				623BD0541DAE38890002388B /* LongPressGestureHandler.swift */,
 				623BD0551DAE38890002388B /* NontitleBackButtonNavigationController.swift */,
-				623BD0561DAE38890002388B /* NSOperation.extension.swift */,
-				623BD0571DAE38890002388B /* NSURL.extension.swift */,
 				623BD0581DAE38890002388B /* Numbers.extension.swift */,
+				623BD0561DAE38890002388B /* Operation.extension.swift */,
 				623BD0591DAE38890002388B /* PlaceholderTextView.swift */,
 				623BD05A1DAE38890002388B /* ResourceHelpers.swift */,
 				623BD05B1DAE38890002388B /* Result.swift */,
@@ -193,6 +192,7 @@
 				623BD0681DAE38890002388B /* UISearchBar.extension.swift */,
 				623BD0691DAE38890002388B /* UIView.extension.swift */,
 				623BD06A1DAE38890002388B /* UIViewController.extension.swift */,
+				623BD0571DAE38890002388B /* URL.extension.swift */,
 				623BD06B1DAE38890002388B /* WebViewController.storyboard */,
 				623BD06C1DAE38890002388B /* WebViewController.swift */,
 			);
@@ -325,7 +325,7 @@
 				623BD08D1DAE38890002388B /* UIViewController.extension.swift in Sources */,
 				623BD0851DAE38890002388B /* UIApplication.extension.swift in Sources */,
 				623BD0831DAE38890002388B /* SwipeGestureHandler.swift in Sources */,
-				623BD07A1DAE38890002388B /* NSURL.extension.swift in Sources */,
+				623BD07A1DAE38890002388B /* URL.extension.swift in Sources */,
 				623BD06D1DAE38890002388B /* Alert.swift in Sources */,
 				623BD0821DAE38890002388B /* String.extension.swift in Sources */,
 				623BD07D1DAE38890002388B /* ResourceHelpers.swift in Sources */,
@@ -346,7 +346,7 @@
 				623BD0721DAE38890002388B /* EnumValues.swift in Sources */,
 				623BD06F1DAE38890002388B /* DebugHelper.swift in Sources */,
 				623BD0771DAE38890002388B /* LongPressGestureHandler.swift in Sources */,
-				623BD0791DAE38890002388B /* NSOperation.extension.swift in Sources */,
+				623BD0791DAE38890002388B /* Operation.extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

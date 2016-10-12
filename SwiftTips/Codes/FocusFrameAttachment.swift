@@ -6,20 +6,18 @@
 
 import UIKit
 
-class FocusFrameAttachment: NSObject {
+class FocusFrameAttachment {
   init(focusView focusView_: UIView, focusColor focusColor_: UIColor, focusFrameSize focusFrameSize_: CGFloat, focusCornerSize focusCornerSize_: CGFloat = 0) {
     self.focusView = focusView_
     self.focusColor = focusColor_
     self.focusFrameSize = focusFrameSize_
     self.focusCornerSize = focusCornerSize_
-    
-    super.init()
   }
   
   var focused: Bool = false {
     didSet(oldFocused) {
       if (oldFocused != self.focused) {
-        self.focusView.layer.borderColor = (self.focused) ? self.focusColor.CGColor : nil
+        self.focusView.layer.borderColor = (self.focused) ? self.focusColor.cgColor : nil
         self.focusView.layer.borderWidth = (self.focused) ? self.focusFrameSize : 0
         self.focusView.layer.cornerRadius = (self.focused) ? self.focusCornerSize : 0
       }

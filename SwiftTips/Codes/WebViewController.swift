@@ -9,7 +9,7 @@ import WebKit
 
 class WebViewController: UIViewController, WKNavigationDelegate {
   class func webViewWith(url url_: String, title title_: String) -> WebViewController {
-    let storyboard = UIStoryboard(name: String(self), bundle: nil)
+    let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
     let me = storyboard.instantiateInitialViewController() as! WebViewController
     me.urlString = url_
     me.title = title_
@@ -26,19 +26,17 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     self.makeWebView()
     
-    let request = NSURLRequest(URL: NSURL(string: self.urlString)!)
-    self.webView.loadRequest(request)
+    let request = URLRequest(url: URL(string: self.urlString)!)
+    self.webView.load(request)
     
-    self.indicator.hidden = false
+    self.indicator.isHidden = false
     self.indicator.startAnimating()
     
-    SwipeGestureHandler.actionWith(owner: self.view, directions: [.Left, .Right], completion: { (sender: SwipeGestureHandler) -> Void in
-      if ((self.parentViewController as! CommentWebViewController).commentPanelKeeper.panelHidden) {
-        if (sender.direction == .Left) {
-          self.swipeLeft()
-        } else if (sender.direction == .Right) {
-          self.swipeRight()
-        }
+    SwipeGestureHandler.actionWith(owner: self.view, directions: [.left, .right], completion: { (sender: SwipeGestureHandler) -> Void in
+      if (sender.direction == .left) {
+        self.swipeLeft()
+      } else if (sender.direction == .right) {
+        self.swipeRight()
       }
     })
   }
@@ -53,34 +51,34 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     self.view.addConstraints([
       NSLayoutConstraint(
         item: self.webView,
-        attribute: .Top,
-        relatedBy: .Equal,
+        attribute: .top,
+        relatedBy: .equal,
         toItem: self.topLayoutGuide,
-        attribute: .Top,
+        attribute: .top,
         multiplier: 1,
         constant: 0),
       NSLayoutConstraint(
         item: self.webView,
-        attribute: .Bottom,
-        relatedBy: .Equal,
+        attribute: .bottom,
+        relatedBy: .equal,
         toItem: self.bottomLayoutGuide,
-        attribute: .Bottom,
+        attribute: .bottom,
         multiplier: 1,
         constant: 0),
       NSLayoutConstraint(
         item: self.webView,
-        attribute: .Left,
-        relatedBy: .Equal,
+        attribute: .left,
+        relatedBy: .equal,
         toItem: self.view,
-        attribute: .Left,
+        attribute: .left,
         multiplier: 1,
         constant: 0),
       NSLayoutConstraint(
         item: self.webView,
-        attribute: .Right,
-        relatedBy: .Equal,
+        attribute: .right,
+        relatedBy: .equal,
         toItem: self.view,
-        attribute: .Right,
+        attribute: .right,
         multiplier: 1,
         constant: 0)
       ])
@@ -96,7 +94,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     if (self.webView.canGoBack) {
       self.webView.goBack()
     } else {
-      self.navigationController?.popViewControllerAnimated(true)
+      _ = self.navigationController?.popViewController(animated: true)
     }
   }
   
@@ -107,14 +105,14 @@ class WebViewController: UIViewController, WKNavigationDelegate {
   }
   
   // MARK: - WKNavigationDelegate
-  func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     self.indicator.stopAnimating()
-    self.indicator.hidden = true
+    self.indicator.isHidden = true
   }
   
-  func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
+  func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
     self.indicator.stopAnimating()
-    self.indicator.hidden = true
+    self.indicator.isHidden = true
   }
   
   // MARK: - Privates
