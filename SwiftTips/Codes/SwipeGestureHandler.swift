@@ -6,8 +6,8 @@
 
 import UIKit
 
-class SwipeGestureHandler: UISwipeGestureRecognizer, GestureHandlerProtocol {
-  class func actionWith(owner owner_: UIView, directions directions_: [UISwipeGestureRecognizerDirection], completion completion_: ((_ sender: SwipeGestureHandler) -> Void)?) {
+open class SwipeGestureHandler: UISwipeGestureRecognizer, GestureHandlerProtocol {
+  public class func actionWith(owner owner_: UIView, directions directions_: [UISwipeGestureRecognizerDirection], completion completion_: ((_ sender: SwipeGestureHandler) -> Void)?) {
     for direction in directions_ {
       let me = SwipeGestureHandler()
       me.direction = direction
@@ -17,11 +17,11 @@ class SwipeGestureHandler: UISwipeGestureRecognizer, GestureHandlerProtocol {
     }
   }
   
-  func onRecognizedGesture(sender sender_: SwipeGestureHandler) {
+  public func onRecognizedGesture(sender sender_: SwipeGestureHandler) {
     if (sender_.state == .ended) {
       self.completion?(sender_)
     }
   }
   
-  private(set) var completion: ((_ sender_: SwipeGestureHandler) -> Void)?
+  private(set) public var completion: ((_ sender_: SwipeGestureHandler) -> Void)?
 }

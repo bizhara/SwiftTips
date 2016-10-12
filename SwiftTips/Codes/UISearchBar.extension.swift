@@ -8,7 +8,7 @@ import UIKit
 
 extension UISearchBar {
   /// UITextField の取得
-  var textField: UITextField? {
+  open var textField: UITextField? {
     get {
       return self.value(forKey: "_searchField") as? UITextField
     }

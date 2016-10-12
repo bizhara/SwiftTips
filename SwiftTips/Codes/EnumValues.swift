@@ -7,7 +7,7 @@
 import Foundation
 
 /// enum 定義を各種の型に変換する
-protocol EnumValues {
+public protocol EnumValues {
   typealias EnumTypeT = Self
 
   /// 全 case の配列（各 enum で実装必須）
@@ -31,17 +31,17 @@ protocol EnumValues {
 }
 
 extension EnumValues {
-  static func ==(left: EnumTypeT, right: EnumTypeT) -> Bool {
+  public static func ==(left: EnumTypeT, right: EnumTypeT) -> Bool {
     return left.string == right.string
   }
 
-  static var count: Int {
+  public static var count: Int {
     get {
       return self.enumValues.count
     }
   }
 
-  var index: Int {
+  public var index: Int {
     get {
       var enumIndex = 0
       for enumValue in type(of: self).enumValues {
@@ -54,7 +54,7 @@ extension EnumValues {
     }
   }
 
-  static func enumValue(from string_: String?) -> EnumTypeT {
+  public static func enumValue(from string_: String?) -> EnumTypeT {
     guard let fromStr = string_ else {
       return self.enumValues[0]
     }
@@ -71,7 +71,7 @@ extension EnumValues {
 }
 
 extension EnumValues {
-  static func stringValues() -> [String] {
+  public static func stringValues() -> [String] {
     var result: [String] = []
     for value in EnumTypeT.enumValues {
       result.append(value.string)
@@ -79,11 +79,11 @@ extension EnumValues {
     return result
   }
 
-  static func valuesString() -> String {
+  public static func valuesString() -> String {
     return EnumTypeT.stringValues().joined(separator: self.separator)
   }
 
-  static var separator: String {
+  public static var separator: String {
     return ","
   }
 }

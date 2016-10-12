@@ -7,14 +7,14 @@
 import UIKit
 
 extension UIButton {
-  enum ImageTextPositions {
+  public enum ImageTextPositions {
     case imageTopTextBottom
     case imageBottomTextTop
     case imageLeftTextRight
     case imageRightTextLeft
   }
 
-  func positionImageAndText(with position: ImageTextPositions, space space_: CGFloat) {
+  open func positionImageAndText(with position: ImageTextPositions, space space_: CGFloat) {
     guard let imageView = self.imageView else { return }
     guard let titleView = self.titleLabel else { return }
 

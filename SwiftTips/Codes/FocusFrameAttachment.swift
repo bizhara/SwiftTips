@@ -6,15 +6,15 @@
 
 import UIKit
 
-class FocusFrameAttachment {
-  init(focusView focusView_: UIView, focusColor focusColor_: UIColor, focusFrameSize focusFrameSize_: CGFloat, focusCornerSize focusCornerSize_: CGFloat = 0) {
+open class FocusFrameAttachment {
+  public init(focusView focusView_: UIView, focusColor focusColor_: UIColor, focusFrameSize focusFrameSize_: CGFloat, focusCornerSize focusCornerSize_: CGFloat = 0) {
     self.focusView = focusView_
     self.focusColor = focusColor_
     self.focusFrameSize = focusFrameSize_
     self.focusCornerSize = focusCornerSize_
   }
   
-  var focused: Bool = false {
+  open var focused: Bool = false {
     didSet(oldFocused) {
       if (oldFocused != self.focused) {
         self.focusView.layer.borderColor = (self.focused) ? self.focusColor.cgColor : nil
@@ -30,7 +30,7 @@ class FocusFrameAttachment {
   private let focusCornerSize: CGFloat
 }
 
-protocol FocusViewProtocol: NSObjectProtocol {
+public protocol FocusViewProtocol {
   var focusAttachment: FocusFrameAttachment! { get }
   func setFocus(focusMe focusMe_: Bool)
 }

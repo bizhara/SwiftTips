@@ -28,9 +28,7 @@
 		623BD07C1DAE38890002388B /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0591DAE38890002388B /* PlaceholderTextView.swift */; };
 		623BD07D1DAE38890002388B /* ResourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05A1DAE38890002388B /* ResourceHelpers.swift */; };
 		623BD07E1DAE38890002388B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05B1DAE38890002388B /* Result.swift */; };
-		623BD07F1DAE38890002388B /* RoundedCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05C1DAE38890002388B /* RoundedCornerButton.swift */; };
 		623BD0801DAE38890002388B /* SelectOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05D1DAE38890002388B /* SelectOne.swift */; };
-		623BD0811DAE38890002388B /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05E1DAE38890002388B /* StatusBarController.swift */; };
 		623BD0821DAE38890002388B /* String.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05F1DAE38890002388B /* String.extension.swift */; };
 		623BD0831DAE38890002388B /* SwipeGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0601DAE38890002388B /* SwipeGestureHandler.swift */; };
 		623BD0841DAE38890002388B /* TextFieldWithMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0611DAE38890002388B /* TextFieldWithMargin.swift */; };
@@ -82,9 +80,7 @@
 		623BD0591DAE38890002388B /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceholderTextView.swift; path = Codes/PlaceholderTextView.swift; sourceTree = "<group>"; };
 		623BD05A1DAE38890002388B /* ResourceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceHelpers.swift; path = Codes/ResourceHelpers.swift; sourceTree = "<group>"; };
 		623BD05B1DAE38890002388B /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Codes/Result.swift; sourceTree = "<group>"; };
-		623BD05C1DAE38890002388B /* RoundedCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedCornerButton.swift; path = Codes/RoundedCornerButton.swift; sourceTree = "<group>"; };
 		623BD05D1DAE38890002388B /* SelectOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectOne.swift; path = Codes/SelectOne.swift; sourceTree = "<group>"; };
-		623BD05E1DAE38890002388B /* StatusBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusBarController.swift; path = Codes/StatusBarController.swift; sourceTree = "<group>"; };
 		623BD05F1DAE38890002388B /* String.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.extension.swift; path = Codes/String.extension.swift; sourceTree = "<group>"; };
 		623BD0601DAE38890002388B /* SwipeGestureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeGestureHandler.swift; path = Codes/SwipeGestureHandler.swift; sourceTree = "<group>"; };
 		623BD0611DAE38890002388B /* TextFieldWithMargin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldWithMargin.swift; path = Codes/TextFieldWithMargin.swift; sourceTree = "<group>"; };
@@ -177,9 +173,7 @@
 				623BD0591DAE38890002388B /* PlaceholderTextView.swift */,
 				623BD05A1DAE38890002388B /* ResourceHelpers.swift */,
 				623BD05B1DAE38890002388B /* Result.swift */,
-				623BD05C1DAE38890002388B /* RoundedCornerButton.swift */,
 				623BD05D1DAE38890002388B /* SelectOne.swift */,
-				623BD05E1DAE38890002388B /* StatusBarController.swift */,
 				623BD05F1DAE38890002388B /* String.extension.swift */,
 				623BD0601DAE38890002388B /* SwipeGestureHandler.swift */,
 				623BD0611DAE38890002388B /* TextFieldWithMargin.swift */,
@@ -315,10 +309,8 @@
 			files = (
 				623BD0871DAE38890002388B /* UIColor.extension.swift in Sources */,
 				623BD0801DAE38890002388B /* SelectOne.swift in Sources */,
-				623BD0811DAE38890002388B /* StatusBarController.swift in Sources */,
 				623BD07E1DAE38890002388B /* Result.swift in Sources */,
 				623BD06E1DAE38890002388B /* Array.extension.swift in Sources */,
-				623BD07F1DAE38890002388B /* RoundedCornerButton.swift in Sources */,
 				623BD0781DAE38890002388B /* NontitleBackButtonNavigationController.swift in Sources */,
 				623BD0711DAE38890002388B /* EasyDataSaver.swift in Sources */,
 				623BD0841DAE38890002388B /* TextFieldWithMargin.swift in Sources */,

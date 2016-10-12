@@ -6,15 +6,15 @@
 
 import UIKit
 
-class LongPressGestureHandler: UILongPressGestureRecognizer, GestureHandlerProtocol {
-  class func actionWith(owner owner_: UIView, completion completion_: ((_ sender: LongPressGestureHandler) -> Void)?) {
+open class LongPressGestureHandler: UILongPressGestureRecognizer, GestureHandlerProtocol {
+  public class func actionWith(owner owner_: UIView, completion completion_: ((_ sender: LongPressGestureHandler) -> Void)?) {
     let me = LongPressGestureHandler()
     me.addTarget(me, action: #selector(self.onRecognizedGesture(sender:)))
     me.completion = completion_
     owner_.addGestureRecognizer(me)
   }
   
-  func onRecognizedGesture(sender sender_: LongPressGestureHandler) {
+  public func onRecognizedGesture(sender sender_: LongPressGestureHandler) {
     if (sender_.state == .changed) {
       sender_.isEnabled = false
       self.completion?(sender_)
@@ -23,5 +23,5 @@ class LongPressGestureHandler: UILongPressGestureRecognizer, GestureHandlerProto
     }
   }
   
-  private(set) var completion: ((_ sender: LongPressGestureHandler) -> Void)?
+  private(set) public var completion: ((_ sender: LongPressGestureHandler) -> Void)?
 }

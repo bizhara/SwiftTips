@@ -7,11 +7,11 @@
 import Foundation
 
 /// Archived save and restore data using UserDefaults.
-class EasyDataSaver {
+open class EasyDataSaver {
   private var data: Data?
   private let dataKey: String
   
-  init(with dataKey_: String) {
+  public init(with dataKey_: String) {
     self.dataKey = dataKey_
   }
   
@@ -20,12 +20,12 @@ class EasyDataSaver {
     self.dataKey = ""
   }
   
-  func update(with newDictionary_: [String: Any]) {
+  open func update(with newDictionary_: [String: Any]) {
     let newData = NSKeyedArchiver.archivedData(withRootObject: newDictionary_)
     self.data = newData
   }
   
-  func toDictionary() -> [String: Any]? {
+  open func toDictionary() -> [String: Any]? {
     guard let _ = self.data else {
       return nil
     }
@@ -34,11 +34,11 @@ class EasyDataSaver {
     return userInfoDictionary
   }
   
-  func hasData() -> Bool {
+  open func hasData() -> Bool {
     return self.data != nil
   }
   
-  func save() {
+  open func save() {
     guard let _ = self.data else {
       return
     }
@@ -46,11 +46,11 @@ class EasyDataSaver {
     UserDefaults.standard.set(self.data, forKey: self.dataKey)
   }
   
-  func restore() {
+  open func restore() {
     self.data = UserDefaults.standard.object(forKey: self.dataKey) as? Data
   }
   
-  func clear() {
+  open func clear() {
     self.data = nil
     UserDefaults.standard.removeObject(forKey: self.dataKey)
   }

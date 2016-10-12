@@ -7,11 +7,11 @@
 import UIKit
 
 /// 入力に応じて高さ調整する TextView
-class LinesTextView: PlaceholderTextView {
+open class LinesTextView: PlaceholderTextView {
   private(set) var minHeight: CGFloat = 0
   private(set) var maxHeight: CGFloat = 0
   
-  override var frame: CGRect {
+  override open var frame: CGRect {
     didSet(oldFrame) {
       if (oldFrame.size.height != self.frame.size.height) {
         self.didChangeHeight?(self, self.frame.size.height)
@@ -19,7 +19,7 @@ class LinesTextView: PlaceholderTextView {
     }
   }
   
-  func setupWith(minLines minLines_: Int, maxLines maxLines_: Int, didChangeHeight didChangeHeight_: ((_ sender: LinesTextView, _ newHeight: CGFloat) -> Void)?) {
+  open func setupWith(minLines minLines_: Int, maxLines maxLines_: Int, didChangeHeight didChangeHeight_: ((_ sender: LinesTextView, _ newHeight: CGFloat) -> Void)?) {
     self.minLines = minLines_
     self.maxLines = maxLines_
     self.minHeight = self.heightBy(lines: self.minLines)
@@ -40,7 +40,7 @@ class LinesTextView: PlaceholderTextView {
     return height
   }
   
-  override func sizeThatFits(_ size: CGSize) -> CGSize {
+  override open func sizeThatFits(_ size: CGSize) -> CGSize {
     var newSize = super.sizeThatFits(size)
     
     if (newSize.height < self.minHeight) {

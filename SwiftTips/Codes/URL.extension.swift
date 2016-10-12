@@ -8,7 +8,7 @@ import Foundation
 
 extension URL {
   /// 短縮 URL の復元（独自の難読化には非対応）
-  func resolveURL(completion completion_: @escaping (_ resolvedURL: URL) -> Void) {
+  public func resolveURL(completion completion_: @escaping (_ resolvedURL: URL) -> Void) {
     var request = URLRequest(url: self)
     request.httpMethod = "HEAD" // Body データは読み込まない（負荷軽減）
 

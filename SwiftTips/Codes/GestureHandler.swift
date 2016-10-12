@@ -6,7 +6,7 @@
 
 import UIKit
 
-protocol GestureHandlerProtocol: NSObjectProtocol {
+public protocol GestureHandlerProtocol: NSObjectProtocol {
   associatedtype GestureRecognizerT
   func onRecognizedGesture(sender sender_: GestureRecognizerT)
   var completion: ((_ sender_: GestureRecognizerT) -> Void)? { get }

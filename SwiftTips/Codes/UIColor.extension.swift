@@ -8,12 +8,12 @@ import UIKit
 
 extension UIColor {
   /// Convert Hex color value to UIColor.
-  class func color(from hexColorValue_: UInt) -> UIColor {
+  public class func color(from hexColorValue_: UInt) -> UIColor {
     return self.color(from: hexColorValue_, alpha: 1.0)
   }
   
   /// Convert Hex color value to UIColor.
-  class func color(from hexColorValue_: UInt, alpha alpha_: CGFloat) -> UIColor {
+  public class func color(from hexColorValue_: UInt, alpha alpha_: CGFloat) -> UIColor {
     let r = (hexColorValue_ >> 16) & 0xFF
     let g = (hexColorValue_ >> 8) & 0xFF
     let b = hexColorValue_ & 0xFF

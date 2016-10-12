@@ -8,8 +8,8 @@ import UIKit
 
 /// Storyboard から InitialViewController 指定された ViewController の生成
 /// （YourViewControllerT と Storyboard 名が同じと想定）
-struct ViewController<YourViewControllerT> {
-  static func fromStoryboard() -> YourViewControllerT? {
+public struct ViewController<YourViewControllerT> {
+  public static func fromStoryboard() -> YourViewControllerT? {
     let storyboard = UIStoryboard(name: "\(YourViewControllerT.self)", bundle: nil)
     let me = storyboard.instantiateInitialViewController() as? YourViewControllerT
     return me
@@ -18,8 +18,8 @@ struct ViewController<YourViewControllerT> {
 
 /// Storyboard から InitialViewController 指定された NavigationController の生成
 /// （YourViewControllerT と Storyboard 名が同じと想定）
-struct NavigationController<YourViewControllerT, YourNovigationControllerT> {
-  static func fromStoryboard() -> YourNovigationControllerT? {
+public struct NavigationController<YourViewControllerT, YourNovigationControllerT> {
+  public static func fromStoryboard() -> YourNovigationControllerT? {
     let storyboard = UIStoryboard(name: "\(YourViewControllerT.self)", bundle: nil)
     let me = storyboard.instantiateInitialViewController() as? YourNovigationControllerT
     return me
@@ -27,21 +27,19 @@ struct NavigationController<YourViewControllerT, YourNovigationControllerT> {
 }
 
 /// nib 属性の取得
-struct Nib<YourClassT> {
-  static func name() -> String {
+public struct Nib<YourClassT> {
+  public static func name() -> String {
     return "\(YourClassT.self)"
   }
 
-  static func id() -> String {
+  public static func id() -> String {
     return self.name()
   }
 
-  static func object() -> YourClassT? {
+  public static func object() -> YourClassT? {
     let nib = UINib(nibName: self.name(), bundle: nil)
     let objects = nib.instantiate(withOwner: nil, options: nil)
-    guard objects.count > 0 else {
-      return nil
-    }
+    guard objects.count > 0 else { return nil }
     let me = objects[0] as? YourClassT
     return me
   }

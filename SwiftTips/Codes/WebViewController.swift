@@ -7,8 +7,8 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController, WKNavigationDelegate {
-  class func webViewWith(url url_: String, title title_: String) -> WebViewController {
+open class WebViewController: UIViewController, WKNavigationDelegate {
+  public class func webViewWith(url url_: String, title title_: String) -> WebViewController {
     let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
     let me = storyboard.instantiateInitialViewController() as! WebViewController
     me.urlString = url_
@@ -21,7 +21,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     self.webView = nil
   }
   
-  override func viewDidLoad() {
+  override open func viewDidLoad() {
     super.viewDidLoad()
     
     self.makeWebView()
@@ -98,19 +98,20 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     }
   }
   
-  override func viewWillLayoutSubviews() {
+  override open func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     
     self.webView.scrollView.reflectTopLayoutGuide(topLayoutGuide: self.topLayoutGuide)
   }
   
   // MARK: - WKNavigationDelegate
-  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+
+  open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     self.indicator.stopAnimating()
     self.indicator.isHidden = true
   }
   
-  func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+  open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
     self.indicator.stopAnimating()
     self.indicator.isHidden = true
   }

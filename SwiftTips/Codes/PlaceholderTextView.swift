@@ -7,8 +7,8 @@
 import UIKit
 
 // Placeholder 付き UITextView（nib ベース前提）
-class PlaceholderTextView: UITextView {
-  var placeholder: String! {
+open class PlaceholderTextView: UITextView {
+  open var placeholder: String! {
     get {
       return self.placeholderLabel.text
     }
@@ -22,9 +22,10 @@ class PlaceholderTextView: UITextView {
       self.placeholderLabel.frame = frame
       
       self.placeholderLabel.isHidden = (self.text.characters.count > 0)
-    }}
+    }
+  }
   
-  override func awakeFromNib() {
+  override open func awakeFromNib() {
     super.awakeFromNib()
     
     self.placeholderLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -36,13 +37,13 @@ class PlaceholderTextView: UITextView {
     NotificationCenter.default.addObserver(self, selector: #selector(self.textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
   }
   
-  override func removeFromSuperview() {
+  override open func removeFromSuperview() {
     NotificationCenter.default.removeObserver(self)
     
     super.removeFromSuperview()
   }
   
-  func textDidChange(_ notification: NSNotification) {
+  open func textDidChange(_ notification: NSNotification) {
     self.placeholderLabel.isHidden = (self.text.characters.count > 0)
   }
   

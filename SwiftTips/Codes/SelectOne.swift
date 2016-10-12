@@ -7,7 +7,7 @@
 import UIKit
 
 /// 択一 UI
-protocol SelectOneProtocol {
+public protocol SelectOneProtocol {
   associatedtype ControllerT
 
   var selectables: [ControllerT]! { get }
@@ -17,11 +17,11 @@ protocol SelectOneProtocol {
 }
 
 extension SelectOneProtocol where ControllerT: UIControl {
-  func tappedSelectable(_ sender: ControllerT) {
+  public func tappedSelectable(_ sender: ControllerT) {
     self.selectOne(sender)
   }
 
-  func selectOne(_ sender: ControllerT) {
+  public func selectOne(_ sender: ControllerT) {
     for selectable in self.selectables {
       if selectable != sender {
         selectable.isSelected = false

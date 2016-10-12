@@ -7,7 +7,7 @@
 import UIKit
 
 extension UIApplication {
-  class func appName() -> String? {
+  public class func appName() -> String? {
     return Bundle.main.infoDictionary?["CFBundleName"] as? String
   }
 }

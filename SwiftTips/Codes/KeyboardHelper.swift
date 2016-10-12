@@ -7,15 +7,15 @@
 import UIKit
 
 /// キーボード操作のある Base ViewController
-class ViewControllerWithKeyboard: UIViewController {
+open class ViewControllerWithKeyboard: UIViewController {
   /// 入力エリア以外をタッチしたらキーボードを消す
-  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesEnded(touches, with: event)
 
     self.hideKeyboard(with: touches, event: event)
   }
 
-  func hideKeyboard(with touches_: Set<UITouch>, event event_: UIEvent?) {
+  open func hideKeyboard(with touches_: Set<UITouch>, event event_: UIEvent?) {
     guard let toucedView = self.findTouchedView(with: touches_, event: event_) else {
       return
     }
@@ -26,23 +26,23 @@ class ViewControllerWithKeyboard: UIViewController {
 }
 
 extension UIResponder {
-  func hideKeyboard() {
+  open func hideKeyboard() {
     // "If target is nil, the app sends the message to the first responder" という API 仕様を利用して、
     // first responder に resignFirstResponder を送る
     UIApplication.shared.sendAction(#selector(self.resignFirstResponder), to: nil, from: nil, for: nil)
   }
 
-  class func hideKeyboard() {
+  public class func hideKeyboard() {
     UIApplication.shared.hideKeyboard()
   }
 }
 
-protocol InputAreaOwnerProtocol {
+public protocol InputAreaOwnerProtocol {
   var inputArea: CGRect { get }
   var lastY: CGFloat { get set }
 }
 
-protocol InputAreaAdjusterProtocol {
+public protocol InputAreaAdjusterProtocol {
   func centerInputAreaWith(_ notification: Notification)
   func repositionInputArea(_ notification: Notification)
 }
@@ -50,7 +50,7 @@ protocol InputAreaAdjusterProtocol {
 extension ViewControllerWithKeyboard: InputAreaAdjusterProtocol {
   /// 入力エリアをキーボード外のエリアのセンターに位置づける
   /// （Respond to UIKeyboardWillShow or UIKeyboardDidShow）
-  func centerInputAreaWith(_ notification: Notification) {
+  open func centerInputAreaWith(_ notification: Notification) {
     guard var inputAreaOwner = self as? InputAreaOwnerProtocol else {
       return
     }
@@ -72,7 +72,7 @@ extension ViewControllerWithKeyboard: InputAreaAdjusterProtocol {
 
   /// 入力エリアを通常の位置に戻す
   /// （Respond to UIKeyboardWillHide or UIKeyboardDidHide）
-  func repositionInputArea(_ notification: Notification) {
+  open func repositionInputArea(_ notification: Notification) {
     guard var inputAreaOwner = self as? InputAreaOwnerProtocol else {
       return
     }
@@ -85,7 +85,7 @@ extension ViewControllerWithKeyboard: InputAreaAdjusterProtocol {
 
 extension Notification {
   /// キーボードの高さを得る
-  func keyboardHeight() -> CGFloat? {
+  public func keyboardHeight() -> CGFloat? {
     guard let userInfo = self.userInfo else {
       return 0
     }

@@ -7,13 +7,13 @@
 import Foundation
 
 extension Dictionary {
-  mutating func merged(with dictionary_: Dictionary) {
+  public mutating func merged(with dictionary_: Dictionary) {
     for (key, value) in dictionary_ {
       self[key] = value
     }
   }
 
-  func mergedCopy(with dictionary_: Dictionary) -> Dictionary {
+  public func mergedCopy(with dictionary_: Dictionary) -> Dictionary {
     var mergedCopy = self
     for (key, value) in dictionary_ {
       mergedCopy[key] = value

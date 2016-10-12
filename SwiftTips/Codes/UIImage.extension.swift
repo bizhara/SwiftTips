@@ -8,7 +8,7 @@ import UIKit
 
 extension UIImage {
   /// 単色のイメージ作成
-  class func image(with color_: UIColor, bounds bounds_: CGRect) -> UIImage? {
+  public class func image(with color_: UIColor, bounds bounds_: CGRect) -> UIImage? {
     UIGraphicsBeginImageContext(bounds_.size)
 
     guard let imageContext = UIGraphicsGetCurrentContext() else {

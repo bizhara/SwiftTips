@@ -7,8 +7,8 @@
 import UIKit
 
 /// 戻る記号だけの戻るボタンを持つ UINavigationController
-class NontitleBackButtonNavigationController: UINavigationController {
-  override func viewDidLayoutSubviews() {
+open class NontitleBackButtonNavigationController: UINavigationController {
+  override open func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
 
     if self.topViewController?.navigationItem.backBarButtonItem == nil {

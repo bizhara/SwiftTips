@@ -9,7 +9,7 @@ import Foundation
 extension Operation {
   // wantToExecute を画面更新系が終わった後に実行されるようにしたい
   // （画面更新系は優先度が高いようで、現状こちら側の優先度を調整しなくても所望の動作にはなっている）
-  func executeAfterBusyTime(wantToExecute wantToExecute_: @escaping (() -> Void)) {
+  open func executeAfterBusyTime(wantToExecute wantToExecute_: @escaping (() -> Void)) {
     func executeByMainQueue() {
       DispatchQueue.main.async() {
         wantToExecute_()

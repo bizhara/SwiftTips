@@ -6,29 +6,29 @@
 
 import Foundation
 
-enum Result<DataTypeT, ErrorTypeT> {
+public enum Result<DataTypeT, ErrorTypeT> {
   case ok(DataTypeT)
   case ng(ErrorTypeT)
 
-  var isOk: Bool {
+  public var isOk: Bool {
     switch self {
       case .ok: return true
       case .ng: return false
     }
   }
 
-  var isNg: Bool {
+  public var isNg: Bool {
     return !self.isOk
   }
 
-  var data: DataTypeT? {
+  public var data: DataTypeT? {
     switch self {
       case .ok(let data): return data
       case .ng: return nil
     }
   }
 
-  var err: ErrorTypeT? {
+  public var err: ErrorTypeT? {
     switch self {
       case .ok: return nil
       case .ng(let err): return err

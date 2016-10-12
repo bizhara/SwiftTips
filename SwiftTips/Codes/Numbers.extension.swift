@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol ToCommaString {
+public protocol ToCommaString {
   typealias NumberTypeT = Self
   func toCommaString() -> String
 }
 
 extension ToCommaString {
-  func toCommaString() -> String {
+  public func toCommaString() -> String {
     let formatter = NumberFormatter()
     formatter.numberStyle = .decimal
     formatter.groupingSeparator = ","
