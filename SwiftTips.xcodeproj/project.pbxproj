@@ -10,6 +10,41 @@
 		623BD0391DAE36810002388B /* SwiftTips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 623BD02F1DAE36810002388B /* SwiftTips.framework */; };
 		623BD03E1DAE36810002388B /* SwiftTipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD03D1DAE36810002388B /* SwiftTipsTests.swift */; };
 		623BD0401DAE36810002388B /* SwiftTips.h in Headers */ = {isa = PBXBuildFile; fileRef = 623BD0321DAE36810002388B /* SwiftTips.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		623BD06D1DAE38890002388B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04A1DAE38890002388B /* Alert.swift */; };
+		623BD06E1DAE38890002388B /* Array.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04B1DAE38890002388B /* Array.extension.swift */; };
+		623BD06F1DAE38890002388B /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04C1DAE38890002388B /* DebugHelper.swift */; };
+		623BD0701DAE38890002388B /* Dictionary.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04D1DAE38890002388B /* Dictionary.extension.swift */; };
+		623BD0711DAE38890002388B /* EasyDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04E1DAE38890002388B /* EasyDataSaver.swift */; };
+		623BD0721DAE38890002388B /* EnumValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04F1DAE38890002388B /* EnumValues.swift */; };
+		623BD0731DAE38890002388B /* FocusFrameAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0501DAE38890002388B /* FocusFrameAttachment.swift */; };
+		623BD0741DAE38890002388B /* GestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0511DAE38890002388B /* GestureHandler.swift */; };
+		623BD0751DAE38890002388B /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0521DAE38890002388B /* KeyboardHelper.swift */; };
+		623BD0761DAE38890002388B /* LinesTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0531DAE38890002388B /* LinesTextView.swift */; };
+		623BD0771DAE38890002388B /* LongPressGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0541DAE38890002388B /* LongPressGestureHandler.swift */; };
+		623BD0781DAE38890002388B /* NontitleBackButtonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0551DAE38890002388B /* NontitleBackButtonNavigationController.swift */; };
+		623BD0791DAE38890002388B /* NSOperation.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0561DAE38890002388B /* NSOperation.extension.swift */; };
+		623BD07A1DAE38890002388B /* NSURL.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0571DAE38890002388B /* NSURL.extension.swift */; };
+		623BD07B1DAE38890002388B /* Numbers.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0581DAE38890002388B /* Numbers.extension.swift */; };
+		623BD07C1DAE38890002388B /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0591DAE38890002388B /* PlaceholderTextView.swift */; };
+		623BD07D1DAE38890002388B /* ResourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05A1DAE38890002388B /* ResourceHelpers.swift */; };
+		623BD07E1DAE38890002388B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05B1DAE38890002388B /* Result.swift */; };
+		623BD07F1DAE38890002388B /* RoundedCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05C1DAE38890002388B /* RoundedCornerButton.swift */; };
+		623BD0801DAE38890002388B /* SelectOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05D1DAE38890002388B /* SelectOne.swift */; };
+		623BD0811DAE38890002388B /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05E1DAE38890002388B /* StatusBarController.swift */; };
+		623BD0821DAE38890002388B /* String.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD05F1DAE38890002388B /* String.extension.swift */; };
+		623BD0831DAE38890002388B /* SwipeGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0601DAE38890002388B /* SwipeGestureHandler.swift */; };
+		623BD0841DAE38890002388B /* TextFieldWithMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0611DAE38890002388B /* TextFieldWithMargin.swift */; };
+		623BD0851DAE38890002388B /* UIApplication.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0621DAE38890002388B /* UIApplication.extension.swift */; };
+		623BD0861DAE38890002388B /* UIButton.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0631DAE38890002388B /* UIButton.extension.swift */; };
+		623BD0871DAE38890002388B /* UIColor.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0641DAE38890002388B /* UIColor.extension.swift */; };
+		623BD0881DAE38890002388B /* UIImage.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0651DAE38890002388B /* UIImage.extension.swift */; };
+		623BD0891DAE38890002388B /* UINavigationBar.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0661DAE38890002388B /* UINavigationBar.extension.swift */; };
+		623BD08A1DAE38890002388B /* UIScrollView.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0671DAE38890002388B /* UIScrollView.extension.swift */; };
+		623BD08B1DAE38890002388B /* UISearchBar.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0681DAE38890002388B /* UISearchBar.extension.swift */; };
+		623BD08C1DAE38890002388B /* UIView.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0691DAE38890002388B /* UIView.extension.swift */; };
+		623BD08D1DAE38890002388B /* UIViewController.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD06A1DAE38890002388B /* UIViewController.extension.swift */; };
+		623BD08E1DAE38890002388B /* WebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623BD06B1DAE38890002388B /* WebViewController.storyboard */; };
+		623BD08F1DAE38890002388B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD06C1DAE38890002388B /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +64,41 @@
 		623BD0381DAE36810002388B /* SwiftTipsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTipsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		623BD03D1DAE36810002388B /* SwiftTipsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTipsTests.swift; sourceTree = "<group>"; };
 		623BD03F1DAE36810002388B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		623BD04A1DAE38890002388B /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Codes/Alert.swift; sourceTree = "<group>"; };
+		623BD04B1DAE38890002388B /* Array.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.extension.swift; path = Codes/Array.extension.swift; sourceTree = "<group>"; };
+		623BD04C1DAE38890002388B /* DebugHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugHelper.swift; path = Codes/DebugHelper.swift; sourceTree = "<group>"; };
+		623BD04D1DAE38890002388B /* Dictionary.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dictionary.extension.swift; path = Codes/Dictionary.extension.swift; sourceTree = "<group>"; };
+		623BD04E1DAE38890002388B /* EasyDataSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EasyDataSaver.swift; path = Codes/EasyDataSaver.swift; sourceTree = "<group>"; };
+		623BD04F1DAE38890002388B /* EnumValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnumValues.swift; path = Codes/EnumValues.swift; sourceTree = "<group>"; };
+		623BD0501DAE38890002388B /* FocusFrameAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FocusFrameAttachment.swift; path = Codes/FocusFrameAttachment.swift; sourceTree = "<group>"; };
+		623BD0511DAE38890002388B /* GestureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GestureHandler.swift; path = Codes/GestureHandler.swift; sourceTree = "<group>"; };
+		623BD0521DAE38890002388B /* KeyboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardHelper.swift; path = Codes/KeyboardHelper.swift; sourceTree = "<group>"; };
+		623BD0531DAE38890002388B /* LinesTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinesTextView.swift; path = Codes/LinesTextView.swift; sourceTree = "<group>"; };
+		623BD0541DAE38890002388B /* LongPressGestureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressGestureHandler.swift; path = Codes/LongPressGestureHandler.swift; sourceTree = "<group>"; };
+		623BD0551DAE38890002388B /* NontitleBackButtonNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NontitleBackButtonNavigationController.swift; path = Codes/NontitleBackButtonNavigationController.swift; sourceTree = "<group>"; };
+		623BD0561DAE38890002388B /* NSOperation.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSOperation.extension.swift; path = Codes/NSOperation.extension.swift; sourceTree = "<group>"; };
+		623BD0571DAE38890002388B /* NSURL.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURL.extension.swift; path = Codes/NSURL.extension.swift; sourceTree = "<group>"; };
+		623BD0581DAE38890002388B /* Numbers.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Numbers.extension.swift; path = Codes/Numbers.extension.swift; sourceTree = "<group>"; };
+		623BD0591DAE38890002388B /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceholderTextView.swift; path = Codes/PlaceholderTextView.swift; sourceTree = "<group>"; };
+		623BD05A1DAE38890002388B /* ResourceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceHelpers.swift; path = Codes/ResourceHelpers.swift; sourceTree = "<group>"; };
+		623BD05B1DAE38890002388B /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Codes/Result.swift; sourceTree = "<group>"; };
+		623BD05C1DAE38890002388B /* RoundedCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedCornerButton.swift; path = Codes/RoundedCornerButton.swift; sourceTree = "<group>"; };
+		623BD05D1DAE38890002388B /* SelectOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectOne.swift; path = Codes/SelectOne.swift; sourceTree = "<group>"; };
+		623BD05E1DAE38890002388B /* StatusBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusBarController.swift; path = Codes/StatusBarController.swift; sourceTree = "<group>"; };
+		623BD05F1DAE38890002388B /* String.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.extension.swift; path = Codes/String.extension.swift; sourceTree = "<group>"; };
+		623BD0601DAE38890002388B /* SwipeGestureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeGestureHandler.swift; path = Codes/SwipeGestureHandler.swift; sourceTree = "<group>"; };
+		623BD0611DAE38890002388B /* TextFieldWithMargin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldWithMargin.swift; path = Codes/TextFieldWithMargin.swift; sourceTree = "<group>"; };
+		623BD0621DAE38890002388B /* UIApplication.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplication.extension.swift; path = Codes/UIApplication.extension.swift; sourceTree = "<group>"; };
+		623BD0631DAE38890002388B /* UIButton.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButton.extension.swift; path = Codes/UIButton.extension.swift; sourceTree = "<group>"; };
+		623BD0641DAE38890002388B /* UIColor.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.extension.swift; path = Codes/UIColor.extension.swift; sourceTree = "<group>"; };
+		623BD0651DAE38890002388B /* UIImage.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImage.extension.swift; path = Codes/UIImage.extension.swift; sourceTree = "<group>"; };
+		623BD0661DAE38890002388B /* UINavigationBar.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationBar.extension.swift; path = Codes/UINavigationBar.extension.swift; sourceTree = "<group>"; };
+		623BD0671DAE38890002388B /* UIScrollView.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScrollView.extension.swift; path = Codes/UIScrollView.extension.swift; sourceTree = "<group>"; };
+		623BD0681DAE38890002388B /* UISearchBar.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISearchBar.extension.swift; path = Codes/UISearchBar.extension.swift; sourceTree = "<group>"; };
+		623BD0691DAE38890002388B /* UIView.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.extension.swift; path = Codes/UIView.extension.swift; sourceTree = "<group>"; };
+		623BD06A1DAE38890002388B /* UIViewController.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.extension.swift; path = Codes/UIViewController.extension.swift; sourceTree = "<group>"; };
+		623BD06B1DAE38890002388B /* WebViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = WebViewController.storyboard; path = Codes/WebViewController.storyboard; sourceTree = "<group>"; };
+		623BD06C1DAE38890002388B /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = Codes/WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +143,7 @@
 			children = (
 				623BD0321DAE36810002388B /* SwiftTips.h */,
 				623BD0331DAE36810002388B /* Info.plist */,
+				623BD0491DAE38720002388B /* Codes */,
 			);
 			path = SwiftTips;
 			sourceTree = "<group>";
@@ -84,6 +155,48 @@
 				623BD03F1DAE36810002388B /* Info.plist */,
 			);
 			path = SwiftTipsTests;
+			sourceTree = "<group>";
+		};
+		623BD0491DAE38720002388B /* Codes */ = {
+			isa = PBXGroup;
+			children = (
+				623BD04A1DAE38890002388B /* Alert.swift */,
+				623BD04B1DAE38890002388B /* Array.extension.swift */,
+				623BD04C1DAE38890002388B /* DebugHelper.swift */,
+				623BD04D1DAE38890002388B /* Dictionary.extension.swift */,
+				623BD04E1DAE38890002388B /* EasyDataSaver.swift */,
+				623BD04F1DAE38890002388B /* EnumValues.swift */,
+				623BD0501DAE38890002388B /* FocusFrameAttachment.swift */,
+				623BD0511DAE38890002388B /* GestureHandler.swift */,
+				623BD0521DAE38890002388B /* KeyboardHelper.swift */,
+				623BD0531DAE38890002388B /* LinesTextView.swift */,
+				623BD0541DAE38890002388B /* LongPressGestureHandler.swift */,
+				623BD0551DAE38890002388B /* NontitleBackButtonNavigationController.swift */,
+				623BD0561DAE38890002388B /* NSOperation.extension.swift */,
+				623BD0571DAE38890002388B /* NSURL.extension.swift */,
+				623BD0581DAE38890002388B /* Numbers.extension.swift */,
+				623BD0591DAE38890002388B /* PlaceholderTextView.swift */,
+				623BD05A1DAE38890002388B /* ResourceHelpers.swift */,
+				623BD05B1DAE38890002388B /* Result.swift */,
+				623BD05C1DAE38890002388B /* RoundedCornerButton.swift */,
+				623BD05D1DAE38890002388B /* SelectOne.swift */,
+				623BD05E1DAE38890002388B /* StatusBarController.swift */,
+				623BD05F1DAE38890002388B /* String.extension.swift */,
+				623BD0601DAE38890002388B /* SwipeGestureHandler.swift */,
+				623BD0611DAE38890002388B /* TextFieldWithMargin.swift */,
+				623BD0621DAE38890002388B /* UIApplication.extension.swift */,
+				623BD0631DAE38890002388B /* UIButton.extension.swift */,
+				623BD0641DAE38890002388B /* UIColor.extension.swift */,
+				623BD0651DAE38890002388B /* UIImage.extension.swift */,
+				623BD0661DAE38890002388B /* UINavigationBar.extension.swift */,
+				623BD0671DAE38890002388B /* UIScrollView.extension.swift */,
+				623BD0681DAE38890002388B /* UISearchBar.extension.swift */,
+				623BD0691DAE38890002388B /* UIView.extension.swift */,
+				623BD06A1DAE38890002388B /* UIViewController.extension.swift */,
+				623BD06B1DAE38890002388B /* WebViewController.storyboard */,
+				623BD06C1DAE38890002388B /* WebViewController.swift */,
+			);
+			name = Codes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +262,7 @@
 					623BD02E1DAE36810002388B = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = QY5JHW32UF;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					623BD0371DAE36810002388B = {
@@ -181,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				623BD08E1DAE38890002388B /* WebViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +313,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				623BD0871DAE38890002388B /* UIColor.extension.swift in Sources */,
+				623BD0801DAE38890002388B /* SelectOne.swift in Sources */,
+				623BD0811DAE38890002388B /* StatusBarController.swift in Sources */,
+				623BD07E1DAE38890002388B /* Result.swift in Sources */,
+				623BD06E1DAE38890002388B /* Array.extension.swift in Sources */,
+				623BD07F1DAE38890002388B /* RoundedCornerButton.swift in Sources */,
+				623BD0781DAE38890002388B /* NontitleBackButtonNavigationController.swift in Sources */,
+				623BD0711DAE38890002388B /* EasyDataSaver.swift in Sources */,
+				623BD0841DAE38890002388B /* TextFieldWithMargin.swift in Sources */,
+				623BD08D1DAE38890002388B /* UIViewController.extension.swift in Sources */,
+				623BD0851DAE38890002388B /* UIApplication.extension.swift in Sources */,
+				623BD0831DAE38890002388B /* SwipeGestureHandler.swift in Sources */,
+				623BD07A1DAE38890002388B /* NSURL.extension.swift in Sources */,
+				623BD06D1DAE38890002388B /* Alert.swift in Sources */,
+				623BD0821DAE38890002388B /* String.extension.swift in Sources */,
+				623BD07D1DAE38890002388B /* ResourceHelpers.swift in Sources */,
+				623BD0891DAE38890002388B /* UINavigationBar.extension.swift in Sources */,
+				623BD0761DAE38890002388B /* LinesTextView.swift in Sources */,
+				623BD0731DAE38890002388B /* FocusFrameAttachment.swift in Sources */,
+				623BD08A1DAE38890002388B /* UIScrollView.extension.swift in Sources */,
+				623BD07C1DAE38890002388B /* PlaceholderTextView.swift in Sources */,
+				623BD0741DAE38890002388B /* GestureHandler.swift in Sources */,
+				623BD08C1DAE38890002388B /* UIView.extension.swift in Sources */,
+				623BD0861DAE38890002388B /* UIButton.extension.swift in Sources */,
+				623BD0701DAE38890002388B /* Dictionary.extension.swift in Sources */,
+				623BD07B1DAE38890002388B /* Numbers.extension.swift in Sources */,
+				623BD08B1DAE38890002388B /* UISearchBar.extension.swift in Sources */,
+				623BD0881DAE38890002388B /* UIImage.extension.swift in Sources */,
+				623BD0751DAE38890002388B /* KeyboardHelper.swift in Sources */,
+				623BD08F1DAE38890002388B /* WebViewController.swift in Sources */,
+				623BD0721DAE38890002388B /* EnumValues.swift in Sources */,
+				623BD06F1DAE38890002388B /* DebugHelper.swift in Sources */,
+				623BD0771DAE38890002388B /* LongPressGestureHandler.swift in Sources */,
+				623BD0791DAE38890002388B /* NSOperation.extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +471,7 @@
 		623BD0441DAE36810002388B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QY5JHW32UF;
@@ -334,6 +484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kazuaki-hara.SwiftTips";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +492,7 @@
 		623BD0451DAE36810002388B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QY5JHW32UF;
@@ -360,6 +512,7 @@
 		623BD0471DAE36810002388B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = QY5JHW32UF;
 				INFOPLIST_FILE = SwiftTipsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +525,7 @@
 		623BD0481DAE36810002388B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = QY5JHW32UF;
 				INFOPLIST_FILE = SwiftTipsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -400,6 +554,7 @@
 				623BD0451DAE36810002388B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		623BD0461DAE36810002388B /* Build configuration list for PBXNativeTarget "SwiftTipsTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +563,7 @@
 				623BD0481DAE36810002388B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
