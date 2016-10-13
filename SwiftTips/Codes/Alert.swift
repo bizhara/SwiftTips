@@ -12,11 +12,6 @@ public func alert(with title_: String,
                   moreSetup moreSetup_: ((_ alert: UIAlertController) -> Void)? = nil,
                   closed closed_: ((_ sender: UIAlertAction) -> Void)? = nil) {
   let alert = UIAlertController(title: title_, message: message_, preferredStyle: .alert)
-  #if DEBUG
-    print("Debug version SwiftTips.framework!")
-  #else
-    print("Release version SwiftTips.framework!")
-  #endif
 
   let okAction = UIAlertAction(title: "OK", style: .default, handler: closed_)
   alert.addAction(okAction)
