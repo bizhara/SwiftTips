@@ -9,8 +9,8 @@ import Foundation
 extension String {
   /// 正しいメールアドレスか否かを判別する
   public func isValidEmailAddress() -> Bool {
-    // RFC に忠実に準拠しているとは言えないが、現実的なチェックとしては必要十分
-    guard let _ = self.range(of: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$", options: .regularExpression) else {
+    // RFC に忠実に準拠しているとは言えないが、現実的なチェックとしては必要十分 (see: http://emailregex.com/)
+    guard let _ = self.range(of: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: .regularExpression) else {
       return false
     }
     return true
