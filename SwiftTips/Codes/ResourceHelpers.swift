@@ -6,41 +6,34 @@
 
 import UIKit
 
-/// Storyboard から InitialViewController 指定された ViewController の生成
-/// （YourViewControllerT と Storyboard 名が同じと想定）
-public struct ViewController<YourViewControllerT> {
-  public static func fromStoryboard() -> YourViewControllerT? {
-    let storyboard = UIStoryboard(name: "\(YourViewControllerT.self)", bundle: nil)
-    let me = storyboard.instantiateInitialViewController() as? YourViewControllerT
-    return me
-  }
+/// xib, storyboard の扱い
+protocol NibProtocol {
+  static var nibName: String { get }
+  static var nibObject: Self? { get }
+  static var viewController: Self? { get }
+  static var reuseID: String { get }
 }
 
-/// Storyboard から InitialViewController 指定された NavigationController の生成
-/// （YourViewControllerT と Storyboard 名が同じと想定）
-public struct NavigationController<YourViewControllerT, YourNovigationControllerT> {
-  public static func fromStoryboard() -> YourNovigationControllerT? {
-    let storyboard = UIStoryboard(name: "\(YourViewControllerT.self)", bundle: nil)
-    let me = storyboard.instantiateInitialViewController() as? YourNovigationControllerT
-    return me
-  }
-}
-
-/// nib 属性の取得
-public struct Nib<YourClassT> {
-  public static func name() -> String {
-    return "\(YourClassT.self)"
+extension NibProtocol {
+  static var nibName: String {
+    return String(describing: self)
   }
 
-  public static func id() -> String {
-    return self.name()
-  }
-
-  public static func object() -> YourClassT? {
-    let nib = UINib(nibName: self.name(), bundle: nil)
+  static var nibObject: Self? {
+    let nib = UINib(nibName: self.nibName, bundle: nil)
     let objects = nib.instantiate(withOwner: nil, options: nil)
     guard objects.count > 0 else { return nil }
-    let me = objects[0] as? YourClassT
+    let me = objects[0] as? Self
     return me
+  }
+
+  static var viewController: Self? {
+    let storyboard = UIStoryboard(name: self.nibName, bundle: nil)
+    let me = storyboard.instantiateInitialViewController() as? Self
+    return me
+  }
+
+  static var reuseID: String {
+    return self.nibName
   }
 }
