@@ -9,9 +9,9 @@ import UIKit
 /// xib, storyboard の扱い
 protocol NibProtocol {
   static var nibName: String { get }
-  static var nibObject: Self? { get }
-  static var viewController: Self? { get }
   static var reuseID: String { get }
+  static func fromNib() -> Self?
+  static func fromStoryboard() -> Self?
 }
 
 extension NibProtocol {
@@ -19,7 +19,11 @@ extension NibProtocol {
     return String(describing: self)
   }
 
-  static var nibObject: Self? {
+  static var reuseID: String {
+    return self.nibName
+  }
+
+  static func fromNib() -> Self? {
     let nib = UINib(nibName: self.nibName, bundle: nil)
     let objects = nib.instantiate(withOwner: nil, options: nil)
     guard objects.count > 0 else { return nil }
@@ -27,13 +31,9 @@ extension NibProtocol {
     return me
   }
 
-  static var viewController: Self? {
+  static func fromStoryboard() -> Self? {
     let storyboard = UIStoryboard(name: self.nibName, bundle: nil)
     let me = storyboard.instantiateInitialViewController() as? Self
     return me
-  }
-
-  static var reuseID: String {
-    return self.nibName
   }
 }
