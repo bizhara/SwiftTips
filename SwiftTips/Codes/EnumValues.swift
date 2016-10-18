@@ -55,9 +55,7 @@ extension EnumValues {
   }
 
   public static func enumValue(from string_: String?) -> EnumTypeT {
-    guard let fromStr = string_ else {
-      return self.enumValues[0]
-    }
+    guard let fromStr = string_ else { return self.enumValues[0] }
 
     var index = 0
     for enumStr in self.stringValues() {
