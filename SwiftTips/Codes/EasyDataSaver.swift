@@ -26,9 +26,7 @@ open class EasyDataSaver {
   }
   
   open func toDictionary() -> [String: Any]? {
-    guard let _ = self.data else {
-      return nil
-    }
+    guard let _ = self.data else { return nil }
     
     let userInfoDictionary = NSKeyedUnarchiver.unarchiveObject(with: self.data!) as! [String: Any]
     return userInfoDictionary
@@ -39,9 +37,7 @@ open class EasyDataSaver {
   }
   
   open func save() {
-    guard let _ = self.data else {
-      return
-    }
+    guard let _ = self.data else { return }
     
     UserDefaults.standard.set(self.data, forKey: self.dataKey)
   }
