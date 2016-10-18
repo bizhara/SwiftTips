@@ -80,7 +80,7 @@ extension UIView {
   open func add(layoutComplement layoutComplement_: LayoutComplementProtocol) {
     func findLayoutCapture() -> LayoutCaptureView? {
       for subView in self.subviews {
-        if type(of: subView) == LayoutCaptureView.self {
+        if subView is LayoutCaptureView {
           return subView as? LayoutCaptureView
         }
       }
