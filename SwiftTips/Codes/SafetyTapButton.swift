@@ -9,7 +9,7 @@
 import UIKit
 
 /// 連打防止
-protocol SafetyTapProtocol {
+public protocol SafetyTapProtocol {
   var tappedClosure: ((_ enableForReuse: @escaping () -> Void) -> Void)? { get set }
 
   func tappedAction(_ sender: UIControl)
@@ -17,7 +17,7 @@ protocol SafetyTapProtocol {
 }
 
 extension SafetyTapProtocol where Self: UIControl {
-  func tappedAction(_ sender: UIControl) {
+  public func tappedAction(_ sender: UIControl) {
     self.isEnabled = false
     if let closure = self.tappedClosure {
       closure() {
@@ -28,14 +28,14 @@ extension SafetyTapProtocol where Self: UIControl {
     }
   }
 
-  mutating func tappedByUser(completion completion_: @escaping (_ enableForReuse: @escaping () -> Void) -> Void) {
+  public mutating func tappedByUser(completion completion_: @escaping (_ enableForReuse: @escaping () -> Void) -> Void) {
     self.tappedClosure = completion_
   }
 }
 
 /// Implemented SafetyTapProtocol Button (nib based)
 open class SafetyTapButton: UIButton, SafetyTapProtocol {
-  internal var tappedClosure: ((_ enableForReuse: @escaping () -> Void) -> Void)?
+  public var tappedClosure: ((_ enableForReuse: @escaping () -> Void) -> Void)?
 
   override open func awakeFromNib() {
     super.awakeFromNib()
