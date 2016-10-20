@@ -74,7 +74,7 @@ public protocol InputAreaOwnerProtocol {
 public protocol InputAreaAdjusterProtocol {
   /// 入力エリアをキーボード外のエリアのセンターに位置づける
   /// （Respond to UIKeyboardWillShow or UIKeyboardDidShow）
-  func centerInputAreaWith(_ notification: Notification)
+  func centerInputArea(_ notification: Notification)
 
   /// 入力エリアを通常の位置に戻す
   /// （Respond to UIKeyboardWillHide or UIKeyboardDidHide）
@@ -82,7 +82,7 @@ public protocol InputAreaAdjusterProtocol {
 }
 
 extension InputAreaAdjusterProtocol where Self: UIViewController {
-  public func centerInputAreaWith(_ notification: Notification) {
+  public func centerInputArea(_ notification: Notification) {
     guard var inputAreaOwner = self as? InputAreaOwnerProtocol else { return }
 
     let keyboardHeight = notification.keyboardHeight()
