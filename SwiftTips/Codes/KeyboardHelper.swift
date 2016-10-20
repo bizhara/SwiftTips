@@ -81,8 +81,8 @@ public protocol InputAreaAdjusterProtocol {
   func repositionInputArea(_ notification: Notification)
 }
 
-extension InputAreaAdjusterProtocol where Self: UIViewController {
-  public func centerInputArea(_ notification: Notification) {
+extension UIViewController: InputAreaAdjusterProtocol {
+  open func centerInputArea(_ notification: Notification) {
     guard var inputAreaOwner = self as? InputAreaOwnerProtocol else { return }
 
     let keyboardHeight = notification.keyboardHeight()
@@ -100,7 +100,7 @@ extension InputAreaAdjusterProtocol where Self: UIViewController {
     self.view.frame = frame
   }
 
-  public func repositionInputArea(_ notification: Notification) {
+  open func repositionInputArea(_ notification: Notification) {
     guard var inputAreaOwner = self as? InputAreaOwnerProtocol else { return }
 
     var frame = self.view.frame
