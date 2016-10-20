@@ -18,10 +18,30 @@ extension UIResponder {
   }
 }
 
-extension UIViewController {
-  open func hideKeyboard(with touches_: Set<UITouch>, event event_: UIEvent?) {
-    guard let toucedView = self.findTouchedView(with: touches_, event: event_) else { return }
-    if toucedView != self.inputView {
+extension UIView {
+  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
+  }
+
+  override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesMoved(touches, with: event)
+  }
+
+  override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesEnded(touches, with: event)
+
+    self.hideKeyboardIfNeeded(with: touches, event: event)
+  }
+
+  override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesCancelled(touches, with: event)
+
+    self.hideKeyboardIfNeeded(with: touches, event: event)
+  }
+
+  open func hideKeyboardIfNeeded(with touches_: Set<UITouch>, event event_: UIEvent?) {
+    guard let touchedView = self.findTouchedView(with: touches_, event: event_) else { return }
+    if !touchedView.isFirstResponder {
       self.hideKeyboard()
     }
   }
@@ -44,30 +64,25 @@ extension Notification {
   }
 }
 
-/// キーボード操作のある Base ViewController
-open class ViewControllerWithKeyboard: UIViewController {
-  /// 入力エリア以外をタッチしたらキーボードを消す
-  override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesEnded(touches, with: event)
-
-    self.hideKeyboard(with: touches, event: event)
-  }
-}
-
+/// キーボード操作のある UIViewController 派生との協業想定
 public protocol InputAreaOwnerProtocol {
   var inputArea: CGRect { get }
   var lastY: CGFloat { get set }
 }
 
+/// キーボード操作のある UIViewController 派生との協業想定
 public protocol InputAreaAdjusterProtocol {
+  /// 入力エリアをキーボード外のエリアのセンターに位置づける
+  /// （Respond to UIKeyboardWillShow or UIKeyboardDidShow）
   func centerInputAreaWith(_ notification: Notification)
+
+  /// 入力エリアを通常の位置に戻す
+  /// （Respond to UIKeyboardWillHide or UIKeyboardDidHide）
   func repositionInputArea(_ notification: Notification)
 }
 
-extension ViewControllerWithKeyboard: InputAreaAdjusterProtocol {
-  /// 入力エリアをキーボード外のエリアのセンターに位置づける
-  /// （Respond to UIKeyboardWillShow or UIKeyboardDidShow）
-  open func centerInputAreaWith(_ notification: Notification) {
+extension InputAreaAdjusterProtocol where Self: UIViewController {
+  public func centerInputAreaWith(_ notification: Notification) {
     guard var inputAreaOwner = self as? InputAreaOwnerProtocol else { return }
 
     let keyboardHeight = notification.keyboardHeight()
@@ -85,9 +100,7 @@ extension ViewControllerWithKeyboard: InputAreaAdjusterProtocol {
     self.view.frame = frame
   }
 
-  /// 入力エリアを通常の位置に戻す
-  /// （Respond to UIKeyboardWillHide or UIKeyboardDidHide）
-  open func repositionInputArea(_ notification: Notification) {
+  public func repositionInputArea(_ notification: Notification) {
     guard var inputAreaOwner = self as? InputAreaOwnerProtocol else { return }
 
     var frame = self.view.frame

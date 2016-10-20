@@ -41,7 +41,6 @@
 		623BD08A1DAE38890002388B /* UIScrollView.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0671DAE38890002388B /* UIScrollView.extension.swift */; };
 		623BD08B1DAE38890002388B /* UISearchBar.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0681DAE38890002388B /* UISearchBar.extension.swift */; };
 		623BD08C1DAE38890002388B /* UIView.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD0691DAE38890002388B /* UIView.extension.swift */; };
-		623BD08D1DAE38890002388B /* UIViewController.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD06A1DAE38890002388B /* UIViewController.extension.swift */; };
 		623BD08E1DAE38890002388B /* WebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623BD06B1DAE38890002388B /* WebViewController.storyboard */; };
 		623BD08F1DAE38890002388B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD06C1DAE38890002388B /* WebViewController.swift */; };
 /* End PBXBuildFile section */
@@ -94,7 +93,6 @@
 		623BD0671DAE38890002388B /* UIScrollView.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScrollView.extension.swift; path = Codes/UIScrollView.extension.swift; sourceTree = "<group>"; };
 		623BD0681DAE38890002388B /* UISearchBar.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISearchBar.extension.swift; path = Codes/UISearchBar.extension.swift; sourceTree = "<group>"; };
 		623BD0691DAE38890002388B /* UIView.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.extension.swift; path = Codes/UIView.extension.swift; sourceTree = "<group>"; };
-		623BD06A1DAE38890002388B /* UIViewController.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.extension.swift; path = Codes/UIViewController.extension.swift; sourceTree = "<group>"; };
 		623BD06B1DAE38890002388B /* WebViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = WebViewController.storyboard; path = Codes/WebViewController.storyboard; sourceTree = "<group>"; };
 		623BD06C1DAE38890002388B /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = Codes/WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,7 +186,6 @@
 				623BD0671DAE38890002388B /* UIScrollView.extension.swift */,
 				623BD0681DAE38890002388B /* UISearchBar.extension.swift */,
 				623BD0691DAE38890002388B /* UIView.extension.swift */,
-				623BD06A1DAE38890002388B /* UIViewController.extension.swift */,
 				623BD0571DAE38890002388B /* URL.extension.swift */,
 				623BD06B1DAE38890002388B /* WebViewController.storyboard */,
 				623BD06C1DAE38890002388B /* WebViewController.swift */,
@@ -316,7 +313,6 @@
 				623BD0781DAE38890002388B /* NontitleBackButtonNavigationController.swift in Sources */,
 				623BD0711DAE38890002388B /* EasyDataSaver.swift in Sources */,
 				623BD0841DAE38890002388B /* TextFieldWithMargin.swift in Sources */,
-				623BD08D1DAE38890002388B /* UIViewController.extension.swift in Sources */,
 				623BD0851DAE38890002388B /* UIApplication.extension.swift in Sources */,
 				623BD0831DAE38890002388B /* SwipeGestureHandler.swift in Sources */,
 				623BD07A1DAE38890002388B /* URL.extension.swift in Sources */,
