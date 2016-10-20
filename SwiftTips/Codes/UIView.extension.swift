@@ -6,6 +6,17 @@
 
 import UIKit
 
+extension UIView {
+  open func findTouchedView(with touches_: Set<UITouch>, event event_: UIEvent?) -> UIView? {
+    guard let touch = touches_.first else { return nil }
+    let touchPoint = touch.location(in: self)
+    let touchedView = self.hitTest(touchPoint, with: event_)
+    return touchedView
+  }
+}
+
+// MARK: - UIView.layer
+
 /// UIView.layer を使っての表現
 extension UIView {
   /// 枠線追加
