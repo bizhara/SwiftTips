@@ -21,10 +21,12 @@ extension UIResponder {
 extension UIView {
   override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
+    print(">>> touchesBegan")
   }
 
   override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesMoved(touches, with: event)
+    print(">>> touchesMoved")
   }
 
   override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
