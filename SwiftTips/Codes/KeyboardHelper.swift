@@ -28,15 +28,15 @@ extension UIView {
   }
 
   override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesEnded(touches, with: event)
-
     self.hideKeyboardIfNeeded(with: touches, event: event)
+
+    super.touchesEnded(touches, with: event)
   }
 
   override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesCancelled(touches, with: event)
-
     self.hideKeyboardIfNeeded(with: touches, event: event)
+    
+    super.touchesCancelled(touches, with: event)
   }
 
   open func hideKeyboardIfNeeded(with touches_: Set<UITouch>, event event_: UIEvent?) {
