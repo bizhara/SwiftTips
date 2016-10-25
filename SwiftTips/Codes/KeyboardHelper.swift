@@ -41,6 +41,8 @@ extension UIView {
 
   open func hideKeyboardIfNeeded(with touches_: Set<UITouch>, event event_: UIEvent?) {
     guard let touchedView = self.findTouchedView(with: touches_, event: event_) else { return }
+    print(">>> touchedView: String(describing: type(of: touchedView))")
+    print(">>> isFirstResponder: \(touchedView.isFirstResponder)")
     if !touchedView.isFirstResponder {
       self.hideKeyboard()
     }
