@@ -47,6 +47,27 @@ extension UIView {
   }
 }
 
+// 詳細は不明だが、上記 extension では感知できない時があり、その補足として設ける
+open class HideKeyboardByTapAssistant: UITapGestureRecognizer, UIGestureRecognizerDelegate {
+  public init(with ownerView: UIView) {
+    super.init(target: nil, action: nil) // designated initializer but can not pass self here...
+
+    self.addTarget(self, action: #selector(self.tappedOwnerView(_:)))
+    self.delegate = self
+    ownerView.addGestureRecognizer(self)
+  }
+
+  @IBAction private func tappedOwnerView(_ sender: UIGestureRecognizer) {
+    sender.view?.hideKeyboard()
+  }
+
+  open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    guard let ownerView = gestureRecognizer.view else { return false }
+    let touchedView = ownerView.findTouchedView(with: Set(arrayLiteral: touch), event: nil)
+    return touchedView == ownerView
+  }
+}
+
 extension Notification {
   /// キーボードの高さを得る
   public func keyboardHeight() -> CGFloat {
