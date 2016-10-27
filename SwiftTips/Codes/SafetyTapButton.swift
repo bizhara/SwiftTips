@@ -51,7 +51,12 @@ open class SafetyTapButton: UIButton, SafetyTapProtocol {
 
   open func disableWhenTapped(completion completion_: @escaping () -> Void) {
     self.tappedClosure = completion_
-    self.addTarget(self, action: Selector(("tappedAction:")), for: .touchUpInside)
+    self.addTarget(self, action: #selector(self.tapped(_:)), for: .touchUpInside)
+  }
+
+  @objc private func tapped(_ sender: UIButton) {
+    var mutable = self
+    mutable.tappedAction(sender)
   }
 }
 
@@ -62,6 +67,11 @@ open class SafetyTapBarButton: UIBarButtonItem, SafetyTapProtocol {
   open func disableWhenTapped(completion completion_: @escaping () -> Void) {
     self.tappedClosure = completion_
     self.target = self
-    self.action = Selector(("tappedAction:"))
+    self.action = #selector(self.tapped(_:))
+  }
+
+  @objc private func tapped(_ sender: UIBarButtonItem) {
+    var mutable = self
+    mutable.tappedAction(sender)
   }
 }
