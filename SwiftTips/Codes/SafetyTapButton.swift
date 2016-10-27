@@ -10,32 +10,37 @@ import UIKit
 
 /// 連打防止
 public protocol SafetyTapProtocol {
-  var tappedClosure: ((_ enableForReuse: @escaping () -> Void) -> Void)? { get set }
+  var tappedClosure: (() -> Void)? { get set }
 
   func tappedAction(_ sender: UIControl)
-  mutating func disableWhenTapped(completion completion_: @escaping (_ enableForReuse: @escaping () -> Void) -> Void)
+  mutating func disableWhenTapped(completion completion_: @escaping () -> Void)
+  mutating func enableForReuse()
 }
 
 extension SafetyTapProtocol where Self: UIControl {
   public func tappedAction(_ sender: UIControl) {
     self.isEnabled = false
     if let closure = self.tappedClosure {
-      closure() {
-        self.isEnabled = true
-      }
+      closure()
+      // ここで呼び出し元に enableForReuse を呼び出してもらうべく closure として返すことも考えられるが、
+      // 理解しづらいリスクの方が大きく感じ、呼び出し元の任意のタイミングで呼び出してもらう仕様とした
     } else {
       self.isEnabled = true
     }
   }
 
-  public mutating func disableWhenTapped(completion completion_: @escaping (_ enableForReuse: @escaping () -> Void) -> Void) {
+  public mutating func disableWhenTapped(completion completion_: @escaping () -> Void) {
     self.tappedClosure = completion_
+  }
+
+  public mutating func enableForReuse() {
+    self.isEnabled = true
   }
 }
 
 /// Implemented SafetyTapProtocol Button (nib based)
 open class SafetyTapButton: UIButton, SafetyTapProtocol {
-  public var tappedClosure: ((_ enableForReuse: @escaping () -> Void) -> Void)?
+  public var tappedClosure: (() -> Void)?
 
   override open func awakeFromNib() {
     super.awakeFromNib()
