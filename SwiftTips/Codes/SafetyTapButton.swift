@@ -13,7 +13,7 @@ public protocol SafetyTapProtocol {
   var tappedClosure: ((_ enableForReuse: @escaping () -> Void) -> Void)? { get set }
 
   func tappedAction(_ sender: UIControl)
-  mutating func tappedByUser(completion completion_: @escaping (_ enableForReuse: @escaping () -> Void) -> Void)
+  mutating func disableWhenTapped(completion completion_: @escaping (_ enableForReuse: @escaping () -> Void) -> Void)
 }
 
 extension SafetyTapProtocol where Self: UIControl {
@@ -28,7 +28,7 @@ extension SafetyTapProtocol where Self: UIControl {
     }
   }
 
-  public mutating func tappedByUser(completion completion_: @escaping (_ enableForReuse: @escaping () -> Void) -> Void) {
+  public mutating func disableWhenTapped(completion completion_: @escaping (_ enableForReuse: @escaping () -> Void) -> Void) {
     self.tappedClosure = completion_
   }
 }
