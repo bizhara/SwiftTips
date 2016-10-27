@@ -8,17 +8,24 @@
 
 import UIKit
 
+public protocol HasEnabled {
+  var isEnabled: Bool { get set }
+}
+
+extension UIControl: HasEnabled {}
+extension UIBarItem: HasEnabled {}
+
 /// 連打防止
 public protocol SafetyTapProtocol {
   var tappedClosure: (() -> Void)? { get set }
 
-  func tappedAction(_ sender: UIControl)
+  mutating func tappedAction(_ sender: HasEnabled)
   mutating func disableWhenTapped(completion completion_: @escaping () -> Void)
   mutating func enableForReuse()
 }
 
-extension SafetyTapProtocol where Self: UIControl {
-  public func tappedAction(_ sender: UIControl) {
+extension SafetyTapProtocol where Self: HasEnabled {
+  public mutating func tappedAction(_ sender: HasEnabled) {
     self.isEnabled = false
     if let closure = self.tappedClosure {
       closure()
@@ -38,17 +45,23 @@ extension SafetyTapProtocol where Self: UIControl {
   }
 }
 
-/// Implemented SafetyTapProtocol Button (nib based)
+/// Implemented SafetyTapProtocol Button
 open class SafetyTapButton: UIButton, SafetyTapProtocol {
   public var tappedClosure: (() -> Void)?
 
-  override open func awakeFromNib() {
-    super.awakeFromNib()
-
-    self.addTarget(self, action: #selector(self.tapped(_:)), for: .touchUpInside)
+  open func disableWhenTapped(completion completion_: @escaping () -> Void) {
+    self.tappedClosure = completion_
+    self.addTarget(self, action: Selector(("tappedAction:")), for: .touchUpInside)
   }
+}
 
-  @IBAction private func tapped(_ sender: UIButton) {
-    self.tappedAction(sender)
+/// Implemented SafetyTapProtocol BarButton
+open class SafetyTapBarButton: UIBarButtonItem, SafetyTapProtocol {
+  public var tappedClosure: (() -> Void)?
+
+  open func disableWhenTapped(completion completion_: @escaping () -> Void) {
+    self.tappedClosure = completion_
+    self.target = self
+    self.action = Selector(("tappedAction:"))
   }
 }
