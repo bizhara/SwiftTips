@@ -8,7 +8,7 @@ import UIKit
 
 /// xib, storyboard の扱い
 public protocol NibProtocol {
-  typealias NibT = Self
+  associatedtype NibT
 
   static var nibName: String { get }
   static var reuseID: String { get }
