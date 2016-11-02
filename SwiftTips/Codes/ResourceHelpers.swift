@@ -17,6 +17,8 @@ public protocol NibProtocol {
 }
 
 extension NibProtocol {
+  public typealias NibT = Self
+  
   public static var nibName: String {
     return String(describing: self)
   }
