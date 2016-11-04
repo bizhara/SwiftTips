@@ -9,7 +9,6 @@
 import UIKit
 
 public protocol ToCommaString {
-  typealias NumberTypeT = Self
   func toCommaString() -> String
 }
 
