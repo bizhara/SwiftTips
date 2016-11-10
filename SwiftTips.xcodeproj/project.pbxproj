@@ -13,7 +13,6 @@
 		623BD0401DAE36810002388B /* SwiftTips.h in Headers */ = {isa = PBXBuildFile; fileRef = 623BD0321DAE36810002388B /* SwiftTips.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		623BD06D1DAE38890002388B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04A1DAE38890002388B /* Alert.swift */; };
 		623BD06E1DAE38890002388B /* Array.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04B1DAE38890002388B /* Array.extension.swift */; };
-		623BD06F1DAE38890002388B /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04C1DAE38890002388B /* DebugHelper.swift */; };
 		623BD0701DAE38890002388B /* Dictionary.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04D1DAE38890002388B /* Dictionary.extension.swift */; };
 		623BD0711DAE38890002388B /* EasyDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04E1DAE38890002388B /* EasyDataSaver.swift */; };
 		623BD0721DAE38890002388B /* EnumValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BD04F1DAE38890002388B /* EnumValues.swift */; };
@@ -65,7 +64,6 @@
 		623BD03F1DAE36810002388B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		623BD04A1DAE38890002388B /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Codes/Alert.swift; sourceTree = "<group>"; };
 		623BD04B1DAE38890002388B /* Array.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array.extension.swift; path = Codes/Array.extension.swift; sourceTree = "<group>"; };
-		623BD04C1DAE38890002388B /* DebugHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugHelper.swift; path = Codes/DebugHelper.swift; sourceTree = "<group>"; };
 		623BD04D1DAE38890002388B /* Dictionary.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dictionary.extension.swift; path = Codes/Dictionary.extension.swift; sourceTree = "<group>"; };
 		623BD04E1DAE38890002388B /* EasyDataSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EasyDataSaver.swift; path = Codes/EasyDataSaver.swift; sourceTree = "<group>"; };
 		623BD04F1DAE38890002388B /* EnumValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnumValues.swift; path = Codes/EnumValues.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 			children = (
 				623BD04A1DAE38890002388B /* Alert.swift */,
 				623BD04B1DAE38890002388B /* Array.extension.swift */,
-				623BD04C1DAE38890002388B /* DebugHelper.swift */,
 				623BD04D1DAE38890002388B /* Dictionary.extension.swift */,
 				623BD04E1DAE38890002388B /* EasyDataSaver.swift */,
 				623BD04F1DAE38890002388B /* EnumValues.swift */,
@@ -334,7 +331,6 @@
 				623BD0751DAE38890002388B /* KeyboardHelper.swift in Sources */,
 				623BD08F1DAE38890002388B /* WebViewController.swift in Sources */,
 				623BD0721DAE38890002388B /* EnumValues.swift in Sources */,
-				623BD06F1DAE38890002388B /* DebugHelper.swift in Sources */,
 				623BD0771DAE38890002388B /* LongPressGestureHandler.swift in Sources */,
 				623BD0791DAE38890002388B /* Operation.extension.swift in Sources */,
 				6205816D1DB788D400347ABD /* SafetyTapButton.swift in Sources */,
