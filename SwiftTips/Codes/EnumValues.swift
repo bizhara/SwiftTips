@@ -43,12 +43,10 @@ extension EnumValues {
 
   public var index: Int {
     get {
-      var enumIndex = 0
-      for enumValue in type(of: self).enumValues {
-        if enumValue == self {
-          return enumIndex
+      for item in type(of: self).enumValues.enumerated() {
+        if item.element == self {
+          return item.offset
         }
-        enumIndex += 1
       }
       return 0
     }
@@ -57,12 +55,10 @@ extension EnumValues {
   public static func enumValue(from string_: String?) -> EnumTypeT {
     guard let fromStr = string_ else { return self.enumValues[0] }
 
-    var index = 0
-    for enumStr in self.stringValues() {
-      if enumStr == fromStr {
-        return self.enumValues[index]
+    for enumItem in self.enumValues {
+      if enumItem.string == fromStr {
+        return enumItem
       }
-      index += 1
     }
     return self.enumValues[0]
   }
@@ -70,11 +66,7 @@ extension EnumValues {
 
 extension EnumValues {
   public static func stringValues() -> [String] {
-    var result: [String] = []
-    for value in EnumTypeT.enumValues {
-      result.append(value.string)
-    }
-    return result
+    return EnumTypeT.enumValues.map { $0.string }
   }
 
   public static func valuesString() -> String {

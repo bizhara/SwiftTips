@@ -14,6 +14,6 @@ extension Array where Element: Equatable {
   }
 
   public mutating func remove(element element_: Element) {
-    self = filter { $0 != element_ }
+    self = self.filter { $0 != element_ }
   }
 }
