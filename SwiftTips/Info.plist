@@ -18,6 +18,8 @@
 	<string>0.4.2</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 </dict>
