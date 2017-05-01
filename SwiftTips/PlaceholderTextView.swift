@@ -24,17 +24,31 @@ open class PlaceholderTextView: UITextView {
       self.placeholderLabel.isHidden = (self.text.characters.count > 0)
     }
   }
+
+    public override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        self.setupPlaceholder()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.setupPlaceholder()
+    }
+
+    private func setupPlaceholder() {
+        self.placeholderLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        self.placeholderLabel.font = self.font
+        self.placeholderLabel.textColor = UIColor.color(from: self.placeholderTextColor)
+        self.placeholderLabel.text = ""
+        self.addSubview(self.placeholderLabel)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
+    }
   
   override open func awakeFromNib() {
     super.awakeFromNib()
-    
-    self.placeholderLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    self.placeholderLabel.font = self.font
-    self.placeholderLabel.textColor = UIColor.color(from: self.placeholderTextColor)
-    self.placeholderLabel.text = ""
-    self.addSubview(self.placeholderLabel)
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(self.textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
+
+    self.setupPlaceholder()
   }
   
   override open func removeFromSuperview() {
