@@ -6,7 +6,7 @@
 
 import UIKit
 
-// Placeholder 付き UITextView（nib ベース前提）
+// Placeholder 付き UITextView
 open class PlaceholderTextView: UITextView {
   open var placeholder: String! {
     get {
@@ -25,32 +25,34 @@ open class PlaceholderTextView: UITextView {
     }
   }
 
-    public override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: textContainer)
-        self.setupPlaceholder()
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.setupPlaceholder()
-    }
+  open var placeholderTextColor: UInt = 0xc7c7c7
 
-    private func setupPlaceholder() {
-        self.placeholderLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.placeholderLabel.font = self.font
-        self.placeholderLabel.textColor = UIColor.color(from: self.placeholderTextColor)
-        self.placeholderLabel.text = ""
-        self.addSubview(self.placeholderLabel)
+  public override init(frame: CGRect, textContainer: NSTextContainer?) {
+    super.init(frame: frame, textContainer: textContainer)
+    self.setupPlaceholder()
+  }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
-    }
-  
+  required public init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    self.setupPlaceholder()
+  }
+
   override open func awakeFromNib() {
     super.awakeFromNib()
 
     self.setupPlaceholder()
   }
-  
+
+  private func setupPlaceholder() {
+    self.placeholderLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    self.placeholderLabel.font = self.font
+    self.placeholderLabel.textColor = UIColor.color(from: self.placeholderTextColor)
+    self.placeholderLabel.text = ""
+    self.addSubview(self.placeholderLabel)
+
+    NotificationCenter.default.addObserver(self, selector: #selector(self.textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
+  }
+
   override open func removeFromSuperview() {
     NotificationCenter.default.removeObserver(self)
     
@@ -63,7 +65,6 @@ open class PlaceholderTextView: UITextView {
   
   // MARK: - Privates
   
-  private let placeholderTextColor: UInt = 0xc7c7c7
   private let placeholderMarginX: CGFloat = 4
   
   private var placeholderLabel: UILabel!
