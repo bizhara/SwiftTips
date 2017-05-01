@@ -25,7 +25,7 @@ open class PlaceholderTextView: UITextView {
     }
   }
 
-  open var placeholderTextColor: UInt = 0xc7c7c7
+  open var placeholderTextColor: UIColor!
 
   public override init(frame: CGRect, textContainer: NSTextContainer?) {
     super.init(frame: frame, textContainer: textContainer)
@@ -44,9 +44,11 @@ open class PlaceholderTextView: UITextView {
   }
 
   private func setupPlaceholder() {
+    self.placeholderTextColor = UIColor.color(from: self.defaultPlaceholderTextColor)
+
     self.placeholderLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     self.placeholderLabel.font = self.font
-    self.placeholderLabel.textColor = UIColor.color(from: self.placeholderTextColor)
+    self.placeholderLabel.textColor = self.placeholderTextColor
     self.placeholderLabel.text = ""
     self.addSubview(self.placeholderLabel)
 
@@ -68,4 +70,6 @@ open class PlaceholderTextView: UITextView {
   private let placeholderMarginX: CGFloat = 4
   
   private var placeholderLabel: UILabel!
+
+  private let defaultPlaceholderTextColor: UInt = 0xc7c7c7
 }
