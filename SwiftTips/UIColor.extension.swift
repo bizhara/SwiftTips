@@ -14,9 +14,15 @@ extension UIColor {
   
   /// Convert Hex color value to UIColor.
   public class func color(from hexColorValue_: UInt, alpha alpha_: CGFloat) -> UIColor {
-    let r = (hexColorValue_ >> 16) & 0xFF
-    let g = (hexColorValue_ >> 8) & 0xFF
-    let b = hexColorValue_ & 0xFF
-    return UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: alpha_)
+    let rgb = self.rgb(from: hexColorValue_)
+    return UIColor(red: rgb.r, green: rgb.g, blue: rgb.b, alpha: alpha_)
+  }
+
+  /// Convert Hex color value to RGB.
+  public class func rgb(from hexColorValue: UInt)-> (r: CGFloat, g: CGFloat, b: CGFloat) {
+    let r = (hexColorValue >> 16) & 0xFF
+    let g = (hexColorValue >> 8) & 0xFF
+    let b = hexColorValue & 0xFF
+    return (CGFloat(r)/255, CGFloat(g)/255, CGFloat(b)/255)
   }
 }
