@@ -18,6 +18,19 @@ extension UIResponder {
   }
 }
 
+public protocol HideKeyboardProtocol {
+  func hideKeyboardIfNeeded(with touches_: Set<UITouch>, event event_: UIEvent?)
+}
+
+extension HideKeyboardProtocol where Self: UIView {
+  public func hideKeyboardIfNeeded(with touches_: Set<UITouch>, event event_: UIEvent?) {
+    guard let touchedView = self.findTouchedView(with: touches_, event: event_) else { return }
+    if !touchedView.isFirstResponder {
+      self.hideKeyboard()
+    }
+  }
+}
+
 extension UIView {
   override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
@@ -28,22 +41,19 @@ extension UIView {
   }
 
   override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    self.hideKeyboardIfNeeded(with: touches, event: event)
+    if let withHideKeyboardProtocol = self as? HideKeyboardProtocol {
+      withHideKeyboardProtocol.hideKeyboardIfNeeded(with: touches, event: event)
+    }
 
     super.touchesEnded(touches, with: event)
   }
 
   override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    self.hideKeyboardIfNeeded(with: touches, event: event)
+    if let withHideKeyboardProtocol = self as? HideKeyboardProtocol {
+      withHideKeyboardProtocol.hideKeyboardIfNeeded(with: touches, event: event)
+    }
     
     super.touchesCancelled(touches, with: event)
-  }
-
-  open func hideKeyboardIfNeeded(with touches_: Set<UITouch>, event event_: UIEvent?) {
-    guard let touchedView = self.findTouchedView(with: touches_, event: event_) else { return }
-    if !touchedView.isFirstResponder {
-      self.hideKeyboard()
-    }
   }
 }
 
