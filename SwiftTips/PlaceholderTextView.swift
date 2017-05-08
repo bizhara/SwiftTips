@@ -47,6 +47,7 @@ open class PlaceholderTextView: UITextView {
     self.placeholderTextColor = UIColor.color(from: self.defaultPlaceholderTextColor)
 
     self.placeholderLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    self.placeholderLabel.numberOfLines = 0
     self.placeholderLabel.font = self.font
     self.placeholderLabel.textColor = self.placeholderTextColor
     self.placeholderLabel.text = ""
