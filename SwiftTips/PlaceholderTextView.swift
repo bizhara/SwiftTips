@@ -15,10 +15,13 @@ open class PlaceholderTextView: UITextView {
     set(newPlaceholder) {
       self.placeholderLabel.text = newPlaceholder
       
-      self.placeholderLabel.sizeToFit()
       var frame = self.placeholderLabel.frame
       frame.origin.x += (self.textContainerInset.left + self.placeholderMarginX)
       frame.origin.y += self.textContainerInset.top
+      frame.size.width = self.frame.size.width - ((self.textContainerInset.left + self.placeholderMarginX) + (self.textContainerInset.right + self.placeholderMarginX))
+      frame.size.height = 0
+
+      self.placeholderLabel.sizeToFit()
       self.placeholderLabel.frame = frame
       
       self.placeholderLabel.isHidden = (self.text.characters.count > 0)
@@ -64,6 +67,12 @@ open class PlaceholderTextView: UITextView {
   
   open func textDidChange(_ notification: NSNotification) {
     self.placeholderLabel.isHidden = (self.text.characters.count > 0)
+  }
+
+  override open func layoutSubviews() {
+    super.layoutSubviews()
+
+
   }
   
   // MARK: - Privates
