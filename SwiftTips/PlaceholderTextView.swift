@@ -70,13 +70,11 @@ open class PlaceholderTextView: UITextView {
   }
 
   private func setupPlaceholder() {
-    self.placeholderTextColor = UIColor.color(from: self.defaultPlaceholderTextColor)
-
     self.placeholderLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     self.placeholderLabel.numberOfLines = 0
     self.placeholderLabel.font = self.font
-    self.placeholderLabel.textColor = self.placeholderTextColor
     self.placeholderLabel.text = ""
+    self.placeholderTextColor = UIColor.color(from: self.defaultPlaceholderTextColor)
     self.addSubview(self.placeholderLabel)
 
     NotificationCenter.default.addObserver(self, selector: #selector(self.textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
