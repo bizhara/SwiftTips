@@ -30,6 +30,12 @@ open class PlaceholderTextView: UITextView {
 
   open var placeholderTextColor: UIColor!
 
+  override open var font: UIFont? {
+    didSet(lastValue) {
+      self.placeholderLabel.font = self.font
+    }
+  }
+
   public override init(frame: CGRect, textContainer: NSTextContainer?) {
     super.init(frame: frame, textContainer: textContainer)
     self.setupPlaceholder()
