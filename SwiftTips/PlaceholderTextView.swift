@@ -14,16 +14,7 @@ open class PlaceholderTextView: UITextView {
     }
     set(newPlaceholder) {
       self.placeholderLabel.text = newPlaceholder
-      
-      var frame = self.placeholderLabel.frame
-      frame.origin.x += (self.textContainerInset.left + self.placeholderMarginX)
-      frame.origin.y += self.textContainerInset.top
-      frame.size.width = self.frame.size.width - ((self.textContainerInset.left + self.placeholderMarginX) + (self.textContainerInset.right + self.placeholderMarginX))
-      frame.size.height = 0
-      self.placeholderLabel.frame = frame
-
-      self.placeholderLabel.sizeToFit()
-
+      self.sizePlaceholder()
       self.placeholderLabel.isHidden = (self.text.characters.count > 0)
     }
   }
@@ -34,6 +25,28 @@ open class PlaceholderTextView: UITextView {
     didSet(lastValue) {
       self.placeholderLabel.font = self.font
     }
+  }
+
+  private func sizePlaceholder() {
+    var size = self.placeholderLabel.frame.size
+    size.width = self.frame.size.width - ((self.textContainerInset.left + self.placeholderMarginX) + (self.textContainerInset.right + self.placeholderMarginX))
+    size.height = 0
+    self.placeholderLabel.frame.size = size
+
+    self.placeholderLabel.sizeToFit()
+  }
+
+  private func positionPlaceholder() {
+    var position = self.placeholderLabel.frame.origin
+    position.x = self.textContainerInset.left + self.placeholderMarginX
+    position.y = self.textContainerInset.top
+    self.placeholderLabel.frame.origin = position
+  }
+
+  override open func layoutSubviews() {
+    super.layoutSubviews()
+
+    self.positionPlaceholder()
   }
 
   public override init(frame: CGRect, textContainer: NSTextContainer?) {
