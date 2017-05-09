@@ -19,7 +19,11 @@ open class PlaceholderTextView: UITextView {
     }
   }
 
-  open var placeholderTextColor: UIColor!
+  open var placeholderTextColor: UIColor! {
+    didSet(lastValue) {
+      self.placeholderLabel.textColor = self.placeholderTextColor
+    }
+  }
 
   override open var font: UIFont? {
     didSet(lastValue) {
