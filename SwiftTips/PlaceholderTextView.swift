@@ -60,12 +60,10 @@ open class PlaceholderTextView: UITextView {
 
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    self.setupPlaceholder()
   }
 
   override open func awakeFromNib() {
     super.awakeFromNib()
-
     self.setupPlaceholder()
   }
 
