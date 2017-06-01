@@ -41,7 +41,7 @@ extension NibProtocol {
 }
 
 /// UIView.layer の設定を IB から可能にする
-@IBDesignable extension UIView {
+extension UIView {
     @IBInspectable var borderColor: UIColor? {
         get {
             if let borderColor = self.layer.borderColor {
