@@ -39,3 +39,36 @@ extension NibProtocol {
     return me
   }
 }
+
+/// UIView.layer の設定を IB から可能にする
+@IBDesignable extension UIView {
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            if let borderColor = self.layer.borderColor {
+                return UIColor(cgColor: borderColor)
+            } else {
+                return nil
+            }
+        }
+        set(newValue) {
+            self.layer.borderColor = newValue?.cgColor
+        }
+    }
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return self.layer.borderWidth
+        }
+        set(newValue) {
+            self.layer.borderWidth = newValue
+        }
+    }
+    @IBInspectable var cornerRadius:CGFloat {
+        get {
+            return self.layer.cornerRadius
+        }
+        set(newValue) {
+            self.layer.cornerRadius = newValue
+            self.clipsToBounds = newValue > 0
+        }
+    }
+}
