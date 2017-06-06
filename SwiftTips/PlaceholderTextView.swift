@@ -60,7 +60,7 @@ open class PlaceholderTextView: UITextView {
     self.placeholderView = UITextView(frame: placeholderFrame)
     guard let placeholderView = self.placeholderView else { return }
 
-    placeholderView.isSelectable = false
+    placeholderView.isUserInteractionEnabled = false
     placeholderView.font = self.font
     placeholderView.text = ""
     placeholderView.textContainerInset = self.textContainerInset
