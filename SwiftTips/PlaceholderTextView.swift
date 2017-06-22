@@ -52,12 +52,6 @@ open class PlaceholderTextView: UITextView {
       self.placeholderView?.textContainerInset = self.textContainerInset
     }
   }
-//
-//  override open var contentInset: UIEdgeInsets {
-//    didSet {
-//      self.placeholderView?.contentInset = self.contentInset
-//    }
-//  }
 
   public override init(frame: CGRect, textContainer: NSTextContainer?) {
     super.init(frame: frame, textContainer: textContainer)
@@ -86,9 +80,8 @@ open class PlaceholderTextView: UITextView {
     placeholderView.backgroundColor = UIColor.clear
     placeholderView.font = self.font
     placeholderView.text = ""
-    placeholderView.textContainerInset = self.textContainerInset
-//    placeholderView.contentInset = self.contentInset
     placeholderView.textColor = UIColor.color(from: self.defaultPlaceholderTextColor)
+    placeholderView.textContainerInset = self.textContainerInset
     self.addSubview(placeholderView)
 
     NotificationCenter.default.addObserver(self, selector: #selector(self.textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
