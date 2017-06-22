@@ -114,7 +114,7 @@ open class PlaceholderTextView: UITextView {
   }
 
   private func positionPlaceholder() {
-    self.placeholderView?.frame.origin = self.bounds.origin
+    self.placeholderView?.frame.origin = CGPoint.zero
   }
 
   override open func layoutSubviews() {
