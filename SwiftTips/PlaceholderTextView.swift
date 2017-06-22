@@ -79,7 +79,7 @@ open class PlaceholderTextView: UITextView {
 
     var placeholderFrame = self.frame
     placeholderFrame.origin = CGPoint.zero
-    self.placeholderView = UITextView(frame: placeholderFrame)
+    self.placeholderView = UITextView(frame: placeholderFrame, textContainer: self.textContainer)
     guard let placeholderView = self.placeholderView else { return }
 
     placeholderView.isUserInteractionEnabled = false
