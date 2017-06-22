@@ -37,6 +37,12 @@ open class PlaceholderTextView: UITextView {
     }
   }
 
+  override open var contentInset: UIEdgeInsets {
+    didSet {
+      self.placeholderView?.contentInset = self.contentInset
+    }
+  }
+
   public override init(frame: CGRect, textContainer: NSTextContainer?) {
     super.init(frame: frame, textContainer: textContainer)
     self.setupPlaceholder()
@@ -65,6 +71,7 @@ open class PlaceholderTextView: UITextView {
     placeholderView.font = self.font
     placeholderView.text = ""
     placeholderView.textContainerInset = self.textContainerInset
+    placeholderView.contentInset = self.contentInset
     placeholderView.textColor = UIColor.color(from: self.defaultPlaceholderTextColor)
     self.addSubview(placeholderView)
 
