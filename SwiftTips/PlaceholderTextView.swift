@@ -25,6 +25,12 @@ open class PlaceholderTextView: UITextView {
     }
   }
 
+  override open var frame: CGRect {
+    didSet {
+      self.placeholderView?.frame = self.frame
+    }
+  }
+
   override open var font: UIFont? {
     didSet {
       self.placeholderView?.font = self.font
