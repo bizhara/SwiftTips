@@ -27,7 +27,17 @@ open class PlaceholderTextView: UITextView {
 
   override open var frame: CGRect {
     didSet {
-      self.placeholderView?.frame = self.frame
+      var frame = self.frame
+      frame.origin = CGPoint.zero
+      self.placeholderView?.frame = frame
+    }
+  }
+
+  override open var bounds: CGRect {
+    didSet {
+      var bounds = self.bounds
+      bounds.origin = CGPoint.zero
+      self.placeholderView?.bounds = bounds
     }
   }
 
@@ -67,8 +77,8 @@ open class PlaceholderTextView: UITextView {
   private func setupPlaceholder() {
     guard self.didSetup == false else { return }
 
-    var placeholderFrame = self.bounds
-    placeholderFrame.size.height = 0
+    var placeholderFrame = self.frame
+    placeholderFrame.origin = CGPoint.zero
     self.placeholderView = UITextView(frame: placeholderFrame)
     guard let placeholderView = self.placeholderView else { return }
 
