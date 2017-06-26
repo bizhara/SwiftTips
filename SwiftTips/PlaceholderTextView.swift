@@ -14,7 +14,6 @@ open class PlaceholderTextView: UITextView {
     }
     set(newPlaceholder) {
       self.placeholderView?.text = newPlaceholder
-      self.sizePlaceholder()
       self.placeholderView?.isHidden = (self.text.characters.count > 0)
     }
   }
@@ -75,6 +74,8 @@ open class PlaceholderTextView: UITextView {
     placeholderFrame.origin = CGPoint.zero
     self.placeholderView = UITextView(frame: placeholderFrame)
     guard let placeholderView = self.placeholderView else { return }
+
+    self.addFrame(frameThickness: 2, frameColor: UIColor.blue)
     placeholderView.addFrame(frameThickness: 2, frameColor: UIColor.red)
 
     placeholderView.isUserInteractionEnabled = false
@@ -98,13 +99,6 @@ open class PlaceholderTextView: UITextView {
 
   open func textDidChange(_ notification: NSNotification) {
     self.placeholderView?.isHidden = (self.text.characters.count > 0)
-  }
-
-  private func sizePlaceholder() {
-    var size = self.bounds.size
-    size.height = 0
-    self.placeholderView?.frame.size = size
-    self.placeholderView?.sizeToFit()
   }
 
   private func positionPlaceholder() {
