@@ -75,6 +75,7 @@ open class PlaceholderTextView: UITextView {
     placeholderFrame.origin = CGPoint.zero
     self.placeholderView = UITextView(frame: placeholderFrame)
     guard let placeholderView = self.placeholderView else { return }
+    placeholderView.addFrame(frameThickness: 2, frameColor: UIColor.red)
 
     placeholderView.isUserInteractionEnabled = false
     placeholderView.backgroundColor = UIColor.clear
