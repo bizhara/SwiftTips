@@ -6,19 +6,25 @@
 
 import UIKit
 
-public func alert(with title_: String,
-                  message message_: String,
-                  presentOn presentOn_: UIViewController,
+public func alert(on viewController: UIViewController,
+                  title title_: String?,
+                  message message_: String?,
+                  defaultButtonTitle defaultButtonTitle_: String?,
+                  destructiveButtonTitle destructiveButtonTitle_: String?,
                   moreSetup moreSetup_: ((_ alert: UIAlertController) -> Void)? = nil,
-                  closed closed_: ((_ sender: UIAlertAction) -> Void)? = nil) {
+                  closed closed_: ((_ byDestructive: Bool) -> Void)? = nil) {
   let alert = UIAlertController(title: title_, message: message_, preferredStyle: .alert)
 
-  let okAction = UIAlertAction(title: "OK", style: .default, handler: closed_)
-  alert.addAction(okAction)
-
-  if let moreSetupTo = moreSetup_ {
-    moreSetupTo(alert)
+  let defaultAction = UIAlertAction(title: defaultButtonTitle_, style: .cancel) { (_ alertAction: UIAlertAction) in
+    closed_?(false)
   }
+  alert.addAction(defaultAction)
 
-  presentOn_.present(alert, animated: true, completion: nil)
+  let destructiveAction = UIAlertAction(title: destructiveButtonTitle_, style: .destructive) { (_ alertAction: UIAlertAction) in
+    closed_?(true)
+  }
+  alert.addAction(destructiveAction)
+
+  moreSetup_?(alert)
+  viewController.present(alert, animated: true, completion: nil)
 }
