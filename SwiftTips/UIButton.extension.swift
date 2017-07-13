@@ -44,13 +44,13 @@ extension UIButton {
                                             right: 0)
       case .imageRightTextLeft:
         self.titleEdgeInsets = UIEdgeInsets(top: 0,
-                                            left: -(titleView.frame.size.width / 2),
+                                            left: -(imageView.frame.size.width),
                                             bottom: 0,
-                                            right: 0)
+                                            right: imageView.frame.size.width)
         self.imageEdgeInsets = UIEdgeInsets(top: 0,
                                             left: titleView.frame.size.width + space_,
                                             bottom: 0,
-                                            right: 0)
+                                            right: -(titleView.frame.size.width + space_))
     }
   }
 }
