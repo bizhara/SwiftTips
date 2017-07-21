@@ -22,8 +22,6 @@
 		43D4531E1EB6FBA8005EA0AA /* Operation.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D452FE1EB6FBA8005EA0AA /* Operation.extension.swift */; };
 		43D4531F1EB6FBA8005EA0AA /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D452FF1EB6FBA8005EA0AA /* PlaceholderTextView.swift */; };
 		43D453201EB6FBA8005EA0AA /* ResourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D453001EB6FBA8005EA0AA /* ResourceHelpers.swift */; };
-		43D453211EB6FBA8005EA0AA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D453011EB6FBA8005EA0AA /* Result.swift */; };
-		43D453221EB6FBA8005EA0AA /* SafetyTapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D453021EB6FBA8005EA0AA /* SafetyTapButton.swift */; };
 		43D453231EB6FBA8005EA0AA /* SelectOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D453031EB6FBA8005EA0AA /* SelectOne.swift */; };
 		43D453241EB6FBA8005EA0AA /* String.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D453041EB6FBA8005EA0AA /* String.extension.swift */; };
 		43D453251EB6FBA8005EA0AA /* SwipeGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D453051EB6FBA8005EA0AA /* SwipeGestureHandler.swift */; };
@@ -70,8 +68,6 @@
 		43D452FE1EB6FBA8005EA0AA /* Operation.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.extension.swift; sourceTree = "<group>"; };
 		43D452FF1EB6FBA8005EA0AA /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		43D453001EB6FBA8005EA0AA /* ResourceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceHelpers.swift; sourceTree = "<group>"; };
-		43D453011EB6FBA8005EA0AA /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		43D453021EB6FBA8005EA0AA /* SafetyTapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafetyTapButton.swift; sourceTree = "<group>"; };
 		43D453031EB6FBA8005EA0AA /* SelectOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOne.swift; sourceTree = "<group>"; };
 		43D453041EB6FBA8005EA0AA /* String.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.extension.swift; sourceTree = "<group>"; };
 		43D453051EB6FBA8005EA0AA /* SwipeGestureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeGestureHandler.swift; sourceTree = "<group>"; };
@@ -169,8 +165,6 @@
 				43D452FE1EB6FBA8005EA0AA /* Operation.extension.swift */,
 				43D452FF1EB6FBA8005EA0AA /* PlaceholderTextView.swift */,
 				43D453001EB6FBA8005EA0AA /* ResourceHelpers.swift */,
-				43D453011EB6FBA8005EA0AA /* Result.swift */,
-				43D453021EB6FBA8005EA0AA /* SafetyTapButton.swift */,
 				43D453031EB6FBA8005EA0AA /* SelectOne.swift */,
 				43D453041EB6FBA8005EA0AA /* String.extension.swift */,
 				43D453051EB6FBA8005EA0AA /* SwipeGestureHandler.swift */,
@@ -319,13 +313,11 @@
 				43D4531D1EB6FBA8005EA0AA /* Numbers.extension.swift in Sources */,
 				43D453251EB6FBA8005EA0AA /* SwipeGestureHandler.swift in Sources */,
 				43D453281EB6FBA8005EA0AA /* UIButton.extension.swift in Sources */,
-				43D453221EB6FBA8005EA0AA /* SafetyTapButton.swift in Sources */,
 				43D4532F1EB6FBA8005EA0AA /* URL.extension.swift in Sources */,
 				43D453291EB6FBA8005EA0AA /* UIColor.extension.swift in Sources */,
 				43D453171EB6FBA8005EA0AA /* FocusFrameAttachment.swift in Sources */,
 				43D4531E1EB6FBA8005EA0AA /* Operation.extension.swift in Sources */,
 				43D453161EB6FBA8005EA0AA /* EnumValues.swift in Sources */,
-				43D453211EB6FBA8005EA0AA /* Result.swift in Sources */,
 				43D453241EB6FBA8005EA0AA /* String.extension.swift in Sources */,
 				43D4531A1EB6FBA8005EA0AA /* LinesTextView.swift in Sources */,
 				43D4531F1EB6FBA8005EA0AA /* PlaceholderTextView.swift in Sources */,
