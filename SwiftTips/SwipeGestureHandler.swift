@@ -17,7 +17,7 @@ open class SwipeGestureHandler: UISwipeGestureRecognizer, GestureHandlerProtocol
     }
   }
   
-  public func onRecognizedGesture(sender sender_: SwipeGestureHandler) {
+    @objc public func onRecognizedGesture(sender sender_: SwipeGestureHandler) {
     if (sender_.state == .ended) {
       self.completion?(sender_)
     }

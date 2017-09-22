@@ -14,7 +14,7 @@ open class LongPressGestureHandler: UILongPressGestureRecognizer, GestureHandler
     owner_.addGestureRecognizer(me)
   }
   
-  public func onRecognizedGesture(sender sender_: LongPressGestureHandler) {
+    @objc public func onRecognizedGesture(sender sender_: LongPressGestureHandler) {
     if (sender_.state == .changed) {
       sender_.isEnabled = false
       self.completion?(sender_)

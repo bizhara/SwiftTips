@@ -93,7 +93,7 @@ open class PlaceholderTextView: UITextView {
     super.removeFromSuperview()
   }
 
-  open func textDidChange(_ notification: NSNotification) {
+    @objc open func textDidChange(_ notification: NSNotification) {
     self.placeholderView?.isHidden = (self.text.characters.count > 0)
   }
 
