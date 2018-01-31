@@ -8,35 +8,37 @@ import UIKit
 
 // Placeholder 付き UITextView
 open class PlaceholderTextView: UITextView {
-  open var placeholder: String? {
+  override open func awakeFromNib() {
+    super.awakeFromNib()
+
+    NotificationCenter.default.addObserver(self, selector: #selector(self.textViewWithPlaceholderTextDidChange(_:)), name: .UITextViewTextDidChange, object: nil)
+
+    self.setup()
+  }
+
+  @objc func textViewWithPlaceholderTextDidChange(_ notification: Notification) {
+    if self.isFirstResponder {
+      self.placeholderView?.isHidden = (self.text.count > 0)
+    }
+  }
+
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
+
+  @IBInspectable var placeholder: String? {
     get {
       return self.placeholderView?.text
     }
-    set(newPlaceholder) {
-      self.placeholderView?.text = newPlaceholder
-      self.placeholderView?.isHidden = (self.text.characters.count > 0)
+    set {
+      self.placeholderView?.text = newValue
+      self.placeholderView?.isHidden = (self.text.count > 0)
     }
   }
 
-  open var placeholderTextColor: UIColor! {
+  @IBInspectable var placeholderTextColor: UIColor? {
     didSet {
       self.placeholderView?.textColor = self.placeholderTextColor
-    }
-  }
-
-  override open var frame: CGRect {
-    didSet {
-      var frame = self.frame
-      frame.origin = CGPoint.zero
-      self.placeholderView?.frame = frame
-    }
-  }
-
-  override open var bounds: CGRect {
-    didSet {
-      var bounds = self.bounds
-      bounds.origin = CGPoint.zero
-      self.placeholderView?.bounds = bounds
     }
   }
 
@@ -52,65 +54,47 @@ open class PlaceholderTextView: UITextView {
     }
   }
 
-  public override init(frame: CGRect, textContainer: NSTextContainer?) {
-    super.init(frame: frame, textContainer: textContainer)
-    self.setupPlaceholder()
+  override open var isScrollEnabled: Bool {
+    didSet {
+      self.placeholderView?.isScrollEnabled = self.isScrollEnabled
+    }
   }
 
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+  override open func layoutSubviews() {
+    super.layoutSubviews()
+
+    // AutoLayout の設定が良くないのか placeholderView.frame.size がゼロになってしまうのを補う
+    if let placeholderView = self.placeholderView,
+      placeholderView.isHidden == false {
+      placeholderView.frame.size = self.frame.size
+      placeholderView.sizeToFit()
+      var viewSize = placeholderView.frame.size
+      viewSize.width = self.frame.width
+      self.frame.size = viewSize
+      placeholderView.frame.size = viewSize
+    }
   }
 
-  override open func awakeFromNib() {
-    super.awakeFromNib()
-    self.setupPlaceholder()
-  }
+  private var placeholderView: UITextView?
+}
 
-  private func setupPlaceholder() {
-    guard self.didSetup == false else { return }
-
-    var placeholderFrame = self.frame
-    placeholderFrame.origin = CGPoint.zero
+extension PlaceholderTextView {
+  private func setup() {
+    let placeholderFrame = self.bounds
     self.placeholderView = UITextView(frame: placeholderFrame)
     guard let placeholderView = self.placeholderView else { return }
 
     placeholderView.isUserInteractionEnabled = false
     placeholderView.backgroundColor = UIColor.clear
     placeholderView.font = self.font
-    placeholderView.text = ""
-    placeholderView.textColor = UIColor.color(from: self.defaultPlaceholderTextColor)
+    placeholderView.textColor = self.placeholderTextColor ?? UIColor.lightGray
     placeholderView.textContainerInset = self.textContainerInset
+    placeholderView.clipsToBounds = true
+    placeholderView.isScrollEnabled = self.isScrollEnabled
     self.addSubview(placeholderView)
+    self.setSimpleLayout(withInternalView: placeholderView)
 
-    NotificationCenter.default.addObserver(self, selector: #selector(self.textDidChange(_:)), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
-
-    self.didSetup = true
+    placeholderView.text = self.placeholder ?? ""
+    placeholderView.isHidden = (self.text.count > 0)
   }
-
-  override open func removeFromSuperview() {
-    NotificationCenter.default.removeObserver(self)
-
-    super.removeFromSuperview()
-  }
-
-    @objc open func textDidChange(_ notification: NSNotification) {
-    self.placeholderView?.isHidden = (self.text.characters.count > 0)
-  }
-
-  private func positionPlaceholder() {
-    self.placeholderView?.frame.origin = CGPoint.zero
-  }
-
-  override open func layoutSubviews() {
-    super.layoutSubviews()
-    self.positionPlaceholder()
-  }
-
-  // MARK: - Privates
-
-  private var placeholderView: UITextView?
-
-  private let defaultPlaceholderTextColor: UInt = 0xc7c7c7
-  
-  private var didSetup: Bool = false
 }
